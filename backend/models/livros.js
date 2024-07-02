@@ -1,7 +1,6 @@
 const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime');
-const sequelize = require('sequelize');
 
 const livros = database.define('usuarios', {
     autor: {
@@ -26,7 +25,7 @@ const livros = database.define('usuarios', {
         defaultValue: "Sem editora"
     },
     qtd_disponivel: {
-        type: sequelize.NUMBER,
+        type: Sequelize.NUMBER,
         allowNull: false
     }
 });
