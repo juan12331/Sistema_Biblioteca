@@ -1,3 +1,4 @@
+
 const { Op } = require('sequelize');
 const Usuarios = require('../models/usuarios');
 
@@ -79,4 +80,21 @@ exports.deleteUsuario = async (req, res) => {
     } catch (err) {
         return res.send('aqui deu erro mn se liga', err)
     }
+}
+
+exports.updateUsuario = async (req, res) => {
+    const Cpf = req.params.cpf
+    const CpfUsuario = await Usuarios.findOne({where: {cpf: Cpf}})
+
+    if (CpfUsuario) {
+        try {
+            const [Updates] = await Usuarios.update(req.body, { where: { cpf: req.params.cpf } }) // verifica se tem alguma alteração
+            return res.send({ message: 'Usuario foi atualizado ;P', })
+
+        } catch (error) {
+            return res.send('deu erro aqui meu mano ==> ', error)
+
+        }
+    }
+    return res.send ('usuario not found!!!')
 }
