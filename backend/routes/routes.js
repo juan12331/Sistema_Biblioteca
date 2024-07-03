@@ -7,4 +7,6 @@ routes.get('/usuarios', UsuariosControllers.getUsersByCpf)
 
 routes.post('/login', UsuariosControllers.login)
 
+routes.post('/usuarios', UsuariosControllers.createUsuario)
+
 module.exports = routes

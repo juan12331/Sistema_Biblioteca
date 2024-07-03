@@ -52,3 +52,15 @@ exports.getUsersByCpf = async (req, res) => {
         return res.status(500).send('Internal Server Error');
     }
 }
+
+exports.createUsuario = async (req, res) => {
+    const verificacao = await Usuarios.findOne({ where:  { email: req.body.email}})
+
+    if (verificacao){
+        return res.send ('usuario ja foi cadastrado')
+    }
+
+    const usuarioCriado = await Usuarios.create(req.body)
+    console.log(usuarioCriado)
+    return res.send('usuario cadastrado com sucesso')
+}
