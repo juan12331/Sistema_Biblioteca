@@ -3,8 +3,14 @@ const Usuarios = require('../models/usuarios');
 
 exports.login = async (req, res) => {
     try {
-        const {email, senha} = req.body;
-        const encontrarUsuario = await Usuarios.findOne({ where: {email, senha}})
+        const {email, senha, cpf} = req.body;
+        const usuario = {
+        [Op.or]: [
+            await Usuarios.findOne({ where: {email, senha}}),
+            await Usuarios.findOne({ where: {cpf, senha}})
+        ]
+        }
+        const encontrarUsuario = await Usuarios.findOne({ where: usuario})
         if (encontrarUsuario) {
             return res.send(encontrarUsuario);
         }
