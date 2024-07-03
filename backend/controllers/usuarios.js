@@ -40,3 +40,15 @@ exports.getUsers = async (req, res) => {
         return res.status(500).send('Internal Server Error');
     }
 }
+
+exports.getUsersByCpf = async (req, res) => {
+    try {
+        const encontrarUsuario = await Usuarios.findByPk(req.params.cpf);
+        if (!encontrarUsuario) {
+            return res.status(404).send('Usuario not found');
+        }
+        return res.send(encontrarUsuario);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
+}
