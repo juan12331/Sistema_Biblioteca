@@ -64,3 +64,13 @@ exports.createUsuario = async (req, res) => {
     console.log(usuarioCriado)
     return res.send('usuario cadastrado com sucesso')
 }
+
+exports.deleteUsuario = async (req, res) => {
+    const encontrarUsuario = await Usuarios.findOne({ where: {cpf: req.params.cpf}})
+    try {
+        await encontrarUsuario.destroy();
+        return res.send('usuario deletado')
+    } catch (err) {
+        return res.send('aqui deu erro mn se liga', err)
+    }
+}
