@@ -61,8 +61,7 @@ exports.getUsersByCpf = async (req, res) => {
 }
 
 exports.createUsuario = async (req, res) => {
-    const verificacao = await Usuarios.findOne({ where:  { email: req.body.email}})
-
+    const verificacao = await Usuarios.findByPk(req.params.cpf);
     if (verificacao){
         return res.send ('usuario ja foi cadastrado')
     }

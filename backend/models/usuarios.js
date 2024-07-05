@@ -11,14 +11,14 @@ const usuarios = database.define('usuarios', {
     },
     nome: {
         type: Sequelize.STRING,
-        AllowNUll: false,
+        AllowNUll: false
     },
     email : {
         type: Sequelize.STRING,
         AllowNUll: false
     },
     senha: {
-        type: Sequelize.STRING(45),
+        type: Sequelize.STRING,
         AllowNUll: false
     },
     papel: {

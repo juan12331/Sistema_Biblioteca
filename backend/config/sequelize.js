@@ -1,6 +1,6 @@
 // Inicializa o sequelize
 const Sequelize = require("sequelize");
-const sequelize = new Sequelize('usuarios', 'root', 'root', { // parametros: database, username, password
+const sequelize = new Sequelize('biblioteca', 'root', 'root', { // parametros: database, username, password
     host: 'localhost',
     dialect: 'mysql',
     port: 3306
