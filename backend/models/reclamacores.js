@@ -12,7 +12,7 @@ const reclamacoes = database.define('reclamacoes', {
     reclamacao: {
         type: Sequelize.STRING(500),
     },
-    
+    updatedAt: false,
 });
 
 

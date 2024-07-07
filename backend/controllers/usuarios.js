@@ -25,8 +25,8 @@ exports.getUsers = async (req, res) => {
     try {
         const { nome, email, papel} = req.query || {};
 
-        if(!nome, !email, !papel) {
-            const usuarios = Usuarios.findAll();
+        if(!nome || !email || !papel) {
+            const usuarios = await Usuarios.findAll();
             return res.send(usuarios)
         }
 

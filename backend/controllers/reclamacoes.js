@@ -38,9 +38,11 @@ exports.getAllReclamacoes = async (req, res) => {
     try{
 
         const { cpf_usuario, reclamacao} = req.query || {};
+        console.log('chegou aqui')
 
-        if(!cpf_usuario, !reclamacao) {
-            const reclamacoes = Reclamacoes.findAll();
+        if(!cpf_usuario || !reclamacao) {
+            const reclamacoes = await Reclamacoes.findAll();
+            console.log(reclamacoes)
             return res.send(reclamacoes)
         }
 
@@ -51,6 +53,7 @@ exports.getAllReclamacoes = async (req, res) => {
             ].filter(Boolean)
         }
 
+        console.log('cpf_usuario')
         const reclamacoes = await Reclamacoes.findAll({ where: pesquisa})
         return res.send(reclamacoes)
 } catch (err) {
