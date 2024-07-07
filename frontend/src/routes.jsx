@@ -10,9 +10,9 @@ function MainRoutes() {
   return (
     <Routes>
       {/* <Route path="/" element={<Login />} /> */}
-      <Route path="/Users" element={<Users />} />
+      <Route path="/" element={<Users />} />
       {/* <Route path="/Criar" element={<Create/>} /> */}
-      <Route path="/Atualizar/:cpf" element={<Update/>}/>
+      <Route path="/Adm/Atualizar/:cpf" element={<Update/>}/>
     </Routes>
   );
 }
