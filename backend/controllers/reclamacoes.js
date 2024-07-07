@@ -1,5 +1,5 @@
 const { Op } = require('sequelize');
-const Reclamacoes = require('../models/reclamacores');
+const Reclamacoes = require('../models/reclamacoes');
 
 exports.createReclamacoes = async (req, res) => {
     const createReclamacoes = await Reclamacoes.create(req.body);

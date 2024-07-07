@@ -1,6 +1,7 @@
 const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime');
+const autores = require('./autores')
 
 const livros = database.define('livros', {
 
@@ -34,8 +35,11 @@ const livros = database.define('livros', {
     id_autor: {
         type: Sequelize.INTEGER,
         AllowNUll: false,
+        references: 'autores', // referencia o nome da tabela
+        referenceskey: 'id_autor', // aqui vai a primarykey
     }
 });
 
+autores.hasMany(livros)
 
 module.exports = livros
