@@ -9,7 +9,7 @@ const ReclamacoesControllers = require('../controllers/reclamacoes')
 //função dos usuarios
 
 routes.get('/usuarios', UsuariosControllers.getUsers)
-routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf)
+// routes.get('/usuarios/:cpf', UsuariosControllers.getUsersByCpf)
 
 routes.post('/login', UsuariosControllers.login)
 

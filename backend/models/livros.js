@@ -35,11 +35,10 @@ const livros = database.define('livros', {
     id_autor: {
         type: Sequelize.INTEGER,
         AllowNUll: false,
-        // references: {
-        //     model: autores,
-        //     key: 'id_autor'
-        // }// referencia o nome da tabela
-        
+        references: {
+            model: autores,
+            key: 'id_autor'
+        } // referencia o nome da tabela
     }
 });
 
