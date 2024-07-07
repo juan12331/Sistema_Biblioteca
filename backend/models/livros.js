@@ -35,11 +35,18 @@ const livros = database.define('livros', {
     id_autor: {
         type: Sequelize.INTEGER,
         AllowNUll: false,
-        references: 'autores', // referencia o nome da tabela
-        referenceskey: 'id_autor', // aqui vai a primarykey
+        // references: {
+        //     model: autores,
+        //     key: 'id_autor'
+        // }// referencia o nome da tabela
+        
     }
 });
 
-autores.hasMany(livros)
+autores.hasMany(livros, {
+    foreignKey: 'id_autor'
+}
+)
+livros.belongsTo(autores);
 
 module.exports = livros
