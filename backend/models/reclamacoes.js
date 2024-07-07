@@ -20,11 +20,11 @@ const reclamacoes = database.define('reclamacoes', {
 });
 
 
-usuarios.hasmany(reclamacoes, {
-    foreignKey: 'id_autor'
-})
+// usuarios.hasmany(reclamacoes, {
+//     foreignKey: 'id_autor'
+// })
 
-reclamacoes.belongsTo(usuarios);
+// reclamacoes.belongsTo(usuarios);
 
 
 module.exports = reclamacoes

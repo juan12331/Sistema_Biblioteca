@@ -1,0 +1,36 @@
+.body{
+    display: flex;
+    justify-content: end;
+    background-color: #fefae0;
+}
+
+.images img{
+    max-height:100vh;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    
+}
+
+.Aling{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-right: 5rem;
+}
+.images {
+    display: flex;
+    
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.col{
+    background-color: white;
+    width: 8rem;
+    margin: 1rem;
+}
