@@ -24,7 +24,7 @@ try{
         ].filter(Boolean)
     }
 
-    const reclamacoes = await Reclamacoes.findOne({ where: pesquisa})
+    const reclamacoes = await Reclamacoes.findOne({ where: acharReclamacao})
     await reclamacoes.destroy();
 
 } catch (err) {

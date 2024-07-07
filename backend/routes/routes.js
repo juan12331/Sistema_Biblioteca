@@ -15,11 +15,19 @@ routes.post('/login', UsuariosControllers.login)
 
 routes.post('/usuarios', UsuariosControllers.createUsuario)
 routes.delete('/usuarios/:cpf', UsuariosControllers.deleteUsuario)
-routes.put('/usaurios/:cpf', UsuariosControllers.updateUsuario)
+routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
 
 //função dos autores
 
 
 //funções dos livros
+
+//funções das reclamacoes
+
+routes.post('/reclamacoes', ReclamacoesControllers.createReclamacoes)
+
+routes.delete('/reclamacoes/:cpf_usuario', ReclamacoesControllers.deleteReclamacoes)
+
+routes.get('/reclamacoes', ReclamacoesControllers.getAllReclamacoes)
 
 module.exports = routes
