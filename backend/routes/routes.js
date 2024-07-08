@@ -19,6 +19,7 @@ routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
 
 //função dos autores
 
+routes.post('/autor', AutoresControllers.createAutor)
 
 //funções dos livros
 
