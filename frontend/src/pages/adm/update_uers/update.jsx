@@ -64,8 +64,8 @@ function Atualizar(){
     showError('senha precisa no minimo de 8 caracteres')
     return
   } 
-  console.log(cpf, nome, email, senha, telefone, papel)
-  updateUser(cpf, nome, email, senha, telefone, papel)
+  console.log(cpf, nome, email, senha, papel, telefone)
+  updateUser(cpf, nome, email, senha, papel, telefone)
   // Voltar()
 }
 

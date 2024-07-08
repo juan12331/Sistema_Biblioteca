@@ -1,3 +1,28 @@
-.Title{
-    margin: 5rem;
+a{
+    padding: 5px;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 5px;
+    border-radius: 7px;
+
+    display: flex;
+    align-items: center;
+}
+
+.links a .icon {
+    margin-right: 10px;
+}
+
+.title {
+    border-bottom: 1px solid #8f8f8f9f;
+}
+
+.links {
+    margin-top: 1.5rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.links a:hover {
+    background-color: #b6b6b6;
 }

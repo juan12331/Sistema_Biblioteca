@@ -4,11 +4,16 @@ const { default_type } = require('mime');
 const usuarios = require('./usuarios')
 
 const reclamacoes = database.define('reclamacoes', {
+
+    id_reclamacoes: {
+        type: Sequelize.STRING,
+        AllowNUll: false,
+        primaryKey: true,
+    },
     
     cpf_usuario: {
         type: Sequelize.STRING,
         AllowNUll: false,
-        primaryKey: true,
         references: {
             model: usuarios,
             key: 'cpf'
@@ -21,7 +26,7 @@ const reclamacoes = database.define('reclamacoes', {
 
 
 // usuarios.hasmany(reclamacoes, {
-//     foreignKey: 'id_autor'
+//     foreignKey: 'cpf_usuario'
 // })
 
 // reclamacoes.belongsTo(usuarios);
