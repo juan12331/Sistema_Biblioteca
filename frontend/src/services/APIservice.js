@@ -1,7 +1,14 @@
 import http from "./http"
 
+
+//funções usuarios
 export async function getUsers(params) {
-    const response = await http.get('/usuarios');
+    const response = await http.get('/usuarios', { params });
+    return response.data;
+}
+
+export async function getUsersByCpf(cpf) {
+    const response = await http.get(`/usuarios/${cpf}`);
     return response.data;
 }
 
@@ -21,6 +28,9 @@ export async function deleteUser(cpf) {
 }
 
 export async function updateUser(cpf, nome, email, senha, papel, telefone) {
-    const response = await http.put(`/usuarios/${cpf}`, {nome, email, senha, papel, telefone})
+    const response = await http.put(`/usuarios/${cpf}`, {nome: nome, email: email, senha, papel, telefone})
     return
 }
+
+
+//outras funções

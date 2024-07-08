@@ -9,6 +9,9 @@ import './create.css'
 import { TextField } from "@mui/material";
 
 const create = () => {
+    const rageEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const rageSenha = /^(?=.*[A-Z])(?=.*\d).+$/;
+    const rageCaracter =  /^.{8,}$/;
 
     const [cpf, setCpf] = useState('')
     const [nome, setName] = useState('')
@@ -26,6 +29,16 @@ const create = () => {
             showError('preencha todos os campos')
             return;
         }
+        if (!rageEmail.test(email)) {
+            showError('Email invalido')
+            return;
+          } if (!rageSenha.test(senha)) {
+            showError('Senha fraca, coloque numeros e letras maiusculas')
+            return;
+          } if (!rageCaracter.test(senha)) {
+            showError('senha precisa no minimo de 8 caracteres')
+            return
+          }
 
         createUser(cpf, nome, email, senha, telefone).then(data => {
             if (data == "usuario ja foi cadastrado") {

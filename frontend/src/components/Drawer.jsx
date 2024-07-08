@@ -24,7 +24,7 @@ const Sidebar = () => {
     <Drawer anchor="left" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box p={2} width='15rem' textAling='centter' role='presentation' >
             <Typography variant='h6' component='div' >Links</Typography>
-            <Typography variant='ol' component='div' b={1}><a href="/">Usuarios</a></Typography>
+            <Typography variant='ol' component='div' b={1}><a href="/Adm/Users">Usuarios</a></Typography>
             <Typography variant='ol' component='div' ><a href="/Adm/Reclamacoes">Reclamações</a></Typography>
         </Box>
     </Drawer>

@@ -18,9 +18,9 @@ exports.login = async (req, res) => {
 
 exports.getUsers = async (req, res) => {
     try {
-        const { nome, email, papel, cpf} = req.query || {};
+        const { nome, email} = req.query || {};
 
-        if(!nome || !email || !papel || !cpf) {
+        if(!nome && !email ) {
             const usuarios = await Usuarios.findAll();
             return res.send(usuarios)
         }
@@ -30,8 +30,6 @@ exports.getUsers = async (req, res) => {
             [Op.or]: [
                 nome ? { nome: { [Op.like]: `%${nome}%` } } : undefined,
                 email ? { email: { [Op.like]: `%${email}%` } } : undefined,
-                papel ? { papel: { [Op.like]: `%${papel}%` } } : undefined,
-                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined
             ].filter(Boolean)
         }
 
@@ -44,17 +42,17 @@ exports.getUsers = async (req, res) => {
     }
 }
 
-// exports.getUsersByCpf = async (req, res) => {
-//     try {
-//         const encontrarUsuario = await Usuarios.findByPk(req.params.cpf);
-//         if (!encontrarUsuario) {
-//             return res.status(404).send('Usuario not found');
-//         }
-//         return res.send(encontrarUsuario);
-//     } catch (error) {
-//         return res.status(500).send('Internal Server Error');
-//     }
-// }
+exports.getUsersByCpf = async (req, res) => {
+    try {
+        const encontrarUsuario = await Usuarios.findByPk(req.params.cpf);
+        if (!encontrarUsuario) {
+            return res.status(404).send('Usuario not found');
+        }
+        return res.send(encontrarUsuario);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
+}
 
 exports.createUsuario = async (req, res) => {
     const verificacao = await Usuarios.findByPk(req.params.cpf);
@@ -79,7 +77,9 @@ exports.deleteUsuario = async (req, res) => {
 
 exports.updateUsuario = async (req, res) => {
     const Cpf = req.params.cpf
+    console.log(Cpf)
     const CpfUsuario = await Usuarios.findOne({where: {cpf: Cpf}})
+    console.log(CpfUsuario)
 
     if (CpfUsuario) {
         try {
