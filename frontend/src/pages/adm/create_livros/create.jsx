@@ -10,7 +10,7 @@ const create = () => {
 
     const [autores, setAutores2] = useState([])
 
-    function getAutores1() {
+    function PegarAutores() {
         getAutores().then(data => {
             setAutores2(data)
         console.log(data);
@@ -26,7 +26,7 @@ const create = () => {
 
     useEffect(() => {
         console.log(autores);
-        getAutores1()
+        PegarAutores()
         console.log(autores)
     }, [])
 
@@ -63,7 +63,7 @@ const create = () => {
 
             <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' />
             <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' />
-            <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
+            <input type="date" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
             <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' />
             <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' />
             <select value={autorId} onChange={(e) => setId(e.target.value)} className='select'>

@@ -1,0 +1,14 @@
+.cadastrarLivro{
+    margin-top: 0.2rem;
+    transition-duration: 0.3s;
+}
+
+.cadastrarLivro:hover{
+    transform: translate(0, -2px);
+    color: rgb(49, 49, 49);
+}
+
+.top{
+    display: flex;
+    align-items: center;
+}

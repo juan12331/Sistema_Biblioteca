@@ -37,7 +37,7 @@ body{
     touch-action: manipulation;
     white-space: nowrap;
     will-change: box-shadow, transform;
-    width: 85vw;
+    width: 80vw;
     margin: 0.5rem;
     
 }

@@ -50,3 +50,10 @@ export async function getAutores(params) {
     const response = await http.get('/autores', { params })
     return response.data
 }
+
+//funções dos livros
+
+export async function getLivros(params) {
+    const response = await http.get('/livros', {params})
+    return response.data;
+}

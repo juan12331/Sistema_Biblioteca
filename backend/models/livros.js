@@ -44,8 +44,10 @@ const livros = database.define('livros', {
 
 autores.hasMany(livros, {
     foreignKey: 'id_autor'
-}
-)
-livros.belongsTo(autores);
+})
+
+livros.belongsTo(autores, {
+    foreignKey: 'id_autor'
+});
 
 module.exports = livros

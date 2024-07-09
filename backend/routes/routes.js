@@ -26,6 +26,7 @@ routes.post('/autores', AutoresControllers.createAutor)
 //funções dos livros
 
 routes.post('/livros', LivrosControllers.createLivros)
+routes.get('/livros', LivrosControllers.getLivros)
 
 //funções das reclamacoes
 
