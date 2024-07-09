@@ -39,7 +39,6 @@ const livros = database.define('livros', {
             model: autores,
             key: 'id_autor'
         }, // referencia o nome da tabela
-        defaultValue: ''
     }
 });
 

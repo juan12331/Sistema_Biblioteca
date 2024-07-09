@@ -66,7 +66,7 @@ function Atualizar(){
   } 
   console.log(cpf, nome, email, senha, papel, telefone)
   updateUser(cpf, nome, email, senha, papel, telefone)
-  // Voltar()
+  Voltar()
 }
 
 useEffect(() => {

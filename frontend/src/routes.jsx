@@ -1,9 +1,13 @@
 import { Route, Routes } from "react-router-dom";
+
+//rotas dos administradores
 import Users from "../src/pages/adm/users/users";
-// import Create from "./pages/create_users/create";
 import Update from "../src/pages/adm/update_uers/update";
-// import Login from "./pages/login_adm/login"
 import Reclamacoes from "./pages/adm/reclamacoes/reclamacoes";
+import Livros from "./pages/adm/livros/livros"
+import CreateLivros from "./pages/adm/create_livros/create"
+
+//Rotas dos usuarios
 import Create from "./pages/users/create/create"
 
 
@@ -15,6 +19,8 @@ function MainRoutes() {
       <Route path="/Adm/Users" element={<Users />} />
       <Route path="/Adm/Atualizar/:cpf" element={<Update/>}/>
       <Route path="/Adm/Reclamacoes" element={<Reclamacoes/>}/>
+      <Route path="/Adm/Livros" element={<Livros/>}/>
+      <Route path="/Adm/Create_Livros" element={<CreateLivros/>}/>
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />

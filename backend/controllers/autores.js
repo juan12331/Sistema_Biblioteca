@@ -11,3 +11,29 @@ exports.createAutor = async (req, res) => {
     console.log(autorCriado)
     return res.send('Autor cadastrado com sucesso')
 }
+
+exports.getAutor = async (req, res) => {
+    try {
+        const { id_autor, autor} = req.query || {};
+
+        if(!id_autor && !autor ) {
+            const autores = await Autores.findAll();
+            return res.send(autores)
+        }
+
+
+        const pesquisa = {
+            [Op.or]: [
+                id_autor ? { id_autor: { [Op.like]: `%${id_autor}%` } } : undefined,
+                autor ? { autor: { [Op.like]: `%${autor}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const autores = await Autores.findAll({ where: pesquisa})
+        return res.send(autores)
+
+    } catch (error) {
+        console.error(error)
+        return res.status(500).send('Internal Server Error');
+    }
+}

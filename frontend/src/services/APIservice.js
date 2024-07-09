@@ -2,6 +2,7 @@ import http from "./http"
 
 
 //funções usuarios
+
 export async function getUsers(params) {
     const response = await http.get('/usuarios', { params });
     return response.data;
@@ -29,9 +30,23 @@ export async function deleteUser(cpf) {
 
 export async function updateUser(cpf, nome, email, senha, papel, telefone) {
     console.log(cpf, nome, email, senha, papel, telefone);
-    const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, senha: senha, papel: papel, telefone: telefone})
+    const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, senha: senha, papel: papel, telefone: telefone })
     return console.log(response.data);
 }
 
 
-//outras funções
+//Funções de livros
+
+export async function createLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor) {
+    const response = await http.post('/livros', { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
+    return response.data;
+}
+
+
+
+//funções dos autores
+
+export async function getAutores(params) {
+    const response = await http.get('/autores', { params })
+    return response.data
+}

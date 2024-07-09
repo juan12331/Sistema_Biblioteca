@@ -5,7 +5,7 @@ import Sidebar from '../../../components/Drawer'
 import Button from '@mui/material/Button';
 
 import { getUsers, deleteUser } from '../../../services/APIservice'
-import {useEffect, useState} from 'react'
+import { useEffect, useState } from 'react'
 import React from 'react'
 
 const users = () => {
@@ -48,39 +48,39 @@ const users = () => {
         <Sidebar />
       </div>
       <div className="users">
-        <div className="top">     
-            <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
-            <Button variant="contained" color="success" onClick={getButton} className='sucess' >Pesquisar</Button>
-            <button className='button1 delete' >sair</button>
+        <div className="top">
+          <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
+          <Button variant="contained" color="success" onClick={getButton} className='sucess' >Pesquisar</Button>
+          <button className='button1 delete' >sair</button>
         </div>
 
         <div className="cardWrap">
-        {users.map((user) => (
-          <div className='card' key={user.cpf}>
-            <div className="nome">
-              {user.nome}
-            </div>
-            <div className="cpf">
-              {user.cpf}
-            </div>
-            <div className="email">
-              {user.email}
-            </div>
-            <div className="telefone">
-              {user.telefone}
-            </div>
-            <div className="papel">
-              {user.papel}
-            </div>
+          {users.map((user) => (
+            <div className='card' key={user.cpf}>
+              <div className="nome">
+                {user.nome}
+              </div>
+              <div className="cpf">
+                {user.cpf}
+              </div>
+              <div className="email">
+                {user.email}
+              </div>
+              <div className="telefone">
+                {user.telefone}
+              </div>
+              <div className="papel">
+                {user.papel}
+              </div>
 
-            <div className="criado">
-              {formatDate(user.createdAt)}
+              <div className="criado">
+                {formatDate(user.createdAt)}
+              </div>
+              <button value={user.cpf} id='delete' className='button1 delete' onClick={() => deletar(user.cpf)}> Deletar </button>
+              <button value={user.cpf} id='edit' className='button1 edit' onClick={() => redirecionarUpdate(user.cpf)}> Editar </button>
             </div>
-            <button value={user.cpf} id='delete' className='button1 delete' onClick={ () =>  deletar(user.cpf) }> Deletar </button> 
-            <button value={user.cpf} id='edit' className='button1 edit' onClick={ () => redirecionarUpdate(user.cpf)}> Editar </button>
-          </div>
-        ))}
-      </div>
+          ))}
+        </div>
       </div>
     </>
 

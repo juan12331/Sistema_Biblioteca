@@ -19,9 +19,13 @@ routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
 
 //função dos autores
 
-routes.post('/autor', AutoresControllers.createAutor)
+routes.get('/autores', AutoresControllers.getAutor)
+
+routes.post('/autores', AutoresControllers.createAutor)
 
 //funções dos livros
+
+routes.post('/livros', LivrosControllers.createLivros)
 
 //funções das reclamacoes
 
