@@ -8,14 +8,7 @@ import { createLivros, getAutores } from '../../../services/APIservice';
 
 const create = () => {
 
-    const [autores, setAutores2] = useState([
-        {
-            "id_autor": 1,
-            "autor": "George Orwell",
-            "createdAt": "2024-07-08T20:15:39.000Z",
-            "updatedAt": "2024-07-08T20:15:39.000Z"
-        }
-    ])
+    const [autores, setAutores2] = useState([])
 
     function getAutores1() {
         getAutores().then(data => {
@@ -33,7 +26,7 @@ const create = () => {
 
     useEffect(() => {
         console.log(autores);
-        // getAutores1()
+        getAutores1()
         console.log(autores)
     }, [])
 
@@ -75,20 +68,17 @@ const create = () => {
             <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' />
             <select value={autorId} onChange={(e) => setId(e.target.value)} className='select'>
                 <option value="">Selecione</option>
-                {autores.map((autor) => {
+                {autores.map((autor) => (
                     <option value={autor.id_autor}>{autor.autor}</option>
-                })
+                ))
 
                 }
             </select>
             <span className='span aviso' id='span'></span>
             <Button variant="contained" color="success" onClick={Criar}>Enviar</Button>
-            {autores.map((autor => {
-             {autor.autor}
-             {autor.id_autor}
-            }))
+            
 
-            }
+            
         </div>
     )
 }
