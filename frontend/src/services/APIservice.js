@@ -47,6 +47,7 @@ export async function createAutor(autor){
 }
 
 export async function deleteAutores(id_autor) {
+    console.log(id_autor)
     const response = await http.delete(`/autores/${id_autor}`)
     return;
 }

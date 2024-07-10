@@ -39,9 +39,10 @@ exports.getAutor = async (req, res) => {
 }
 
 exports.deleteAutor = async (req, res) => {
-     try {
-        const pegaAutor = Autores.findOne({ where: {id_autor: req.params.id_autor}})
+    const pegaAutor = Autores.findByPk(req.params.id_autor)
+    try {
         if (pegaAutor) {    
+            console.log('ok')
             await pegaAutor.destroy();
             return res.status(200).send("Usuario deletado com sucesso")
         }
