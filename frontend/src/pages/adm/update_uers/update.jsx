@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import React, { useState, useEffect } from 'react';
 import { updateUser, getUsersByCpf } from '../../../services/APIservice';
 import Button from '@mui/material/Button';
+import './update.css'
 
 //cpf, nome, email, senha, papel, telefone
 
@@ -64,7 +65,6 @@ function Atualizar(){
     showError('senha precisa no minimo de 8 caracteres')
     return
   } 
-  console.log(cpf, nome, email, senha, papel, telefone)
   updateUser(cpf, nome, email, senha, papel, telefone)
   Voltar()
 }
@@ -78,6 +78,11 @@ useEffect(() => {
     <>
     <div className="header">
       <Sidebar/>
+      <div className="text">
+                ATUALIZAR USUARIOS
+            </div>
+            <span></span>
+
     </div>
     
     <div>

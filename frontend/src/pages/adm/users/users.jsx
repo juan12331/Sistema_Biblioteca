@@ -48,6 +48,11 @@ const users = () => {
     <>
       <div className="header">
         <Sidebar />
+        <div className="text">
+                USUARIOS
+            </div>
+            <span></span>
+
       </div>
       <div className="users">
         <div className="top">

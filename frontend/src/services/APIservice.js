@@ -34,16 +34,6 @@ export async function updateUser(cpf, nome, email, senha, papel, telefone) {
     return console.log(response.data);
 }
 
-
-//Funções de livros
-
-export async function createLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor) {
-    const response = await http.post('/livros', { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
-    return response.data;
-}
-
-
-
 //funções dos autores
 
 export async function getAutores(params) {
@@ -53,12 +43,29 @@ export async function getAutores(params) {
 
 //funções dos livros
 
+
+export async function createLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor) {
+    const response = await http.post('/livros', { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
+    return response.data;
+}
+
+
 export async function getLivros(params) {
-    const response = await http.get('/livros', {params})
+    const response = await http.get('/livros', { params })
     return response.data;
 }
 
 export async function deleteLivros(id) {
     const response = await http.delete(`/livros/${id}`)
-    return
+    return;
+}
+
+export async function updateLivros(id, nome, genero, data_criacao, editora, qtd_disponivel, id_autor){
+    const response = await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
+    return;
+}
+
+export async function getLivrosById(id) {
+    const response = await http.get(`/livros/${id}`)
+    return response.data
 }

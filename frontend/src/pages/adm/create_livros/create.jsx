@@ -8,11 +8,16 @@ import { createLivros, getAutores } from '../../../services/APIservice';
 
 const create = () => {
 
-    const [autores, setAutores2] = useState([])
+    const rageYear = /^\d{1,4}$/;
+    const rageQuantidade = /^\d{1,2}$/;
+    const rageLetras = /^[^a-zA-Z]*$/
+
+
+    const [autores, setAutores] = useState([])
 
     function PegarAutores() {
         getAutores().then(data => {
-            setAutores2(data)
+            setAutores(data)
         console.log(data);
         })
     }
@@ -25,26 +30,32 @@ const create = () => {
     const [autorId, setId] = useState('')
 
     useEffect(() => {
-        console.log(autores);
         PegarAutores()
-        console.log(autores)
     }, [])
 
     function Criar() {
-        console.log(autores)
         if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '') {
             showError('preencha todos os campos')
             return;
+        } if (quantidade < 0) {
+            showError('Como tem livros negativos?')
+            return
+        } if (!rageYear.test(data)) {
+            showError('Insira um ano valido')
+            return
+        } if (!rageQuantidade.test(quantidade)) {
+            showError('não temos tantos livros assim pae')
+            return
+        } if(!rageLetras.test(quantidade)) {
+            showError('insira uma quantidade valida')
+            return
+        } if (!rageLetras.test(data)) {
+            showError('insira uma data valida')
+            return
         }
 
         createLivros(nome, genero, data, editora, quantidade, autorId).then(data => {
-            
-            if (data == "livro ja existe") {
-                showError(data)
-                return
-            }
             window.location.href = "/Adm/Livros"
-
         }).catch(err => console.log(err))
     }
 
@@ -59,11 +70,16 @@ const create = () => {
         <div>
             <div className="header">
                 <Sidebar />
+                <div className="text">
+                REGISTRAR LIVROS
+            </div>
+            <span></span>
+
             </div>
 
             <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' />
             <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' />
-            <input type="date" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
+            <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
             <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' />
             <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' />
             <select value={autorId} onChange={(e) => setId(e.target.value)} className='select'>

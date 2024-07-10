@@ -34,14 +34,21 @@ const livros = () => {
       }, [])
 
       async function deletar(id){
-        console.log(id)
         await deleteLivros(id)
         getBooks()
+      }
+
+      function editar(id) {
+        window.location.href = `/Adm/Atualizar_livros/${id}`
       }
 
     return (
         <div><div className="header">
             <Sidebar />
+            <div className="text">
+                LIVROS
+            </div>
+            <span></span>
         </div>
             <div className="top">
             <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
@@ -63,17 +70,17 @@ const livros = () => {
                 {livro.editora}
               </div>
               <div className="telefone">
-                {livro.qtd_disponivel}
+                quantidade: {livro.qtd_disponivel}
               </div>
               <div className="autor">
-                {livro.autore.autor}
+                Autor: {livro.autore.autor}
               </div>
 
               <div className="data_criacao">
                 {formatDate(livro.data_criacao)}
               </div>
                <button value={livro.id_livro} id='delete' className='button1 delete' onClick={() => deletar(livro.id_livro)}> Deletar </button>
-              {/*<button value={livro.id_livro} id='edit' className='button1 edit' onClick={() => redirecionarUpdate(user.cpf)}> Editar </button> */}
+              <button value={livro.id_livro} id='edit' className='button1 edit' onClick={() => editar(livro.id_livro)}> Editar </button>
             </div> 
           ))}
         </div>

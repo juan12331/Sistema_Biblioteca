@@ -6,6 +6,7 @@ import Update from "../src/pages/adm/update_uers/update";
 import Reclamacoes from "./pages/adm/reclamacoes/reclamacoes";
 import Livros from "./pages/adm/livros/livros"
 import CreateLivros from "./pages/adm/create_livros/create"
+import UpdateLivros from "./pages/adm/update_livros/update"
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
@@ -21,6 +22,7 @@ function MainRoutes() {
       <Route path="/Adm/Reclamacoes" element={<Reclamacoes/>}/>
       <Route path="/Adm/Livros" element={<Livros/>}/>
       <Route path="/Adm/Create_Livros" element={<CreateLivros/>}/>
+      <Route path="/Adm/Atualizar_livros/:id" element={<UpdateLivros/>}/>
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />

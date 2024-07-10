@@ -5,6 +5,11 @@ const reclamacoes = () => {
   return (
     <div className="header">
       <Sidebar/>
+      <div className="text">
+                RECLAMAÇÕES
+            </div>
+            <span></span>
+
     </div>
   )
 }

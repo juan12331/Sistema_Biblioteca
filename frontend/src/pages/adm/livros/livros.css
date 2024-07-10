@@ -1,11 +1,19 @@
 .cadastrarLivro{
-    margin-top: 0.2rem;
-    transition-duration: 0.3s;
+    margin-top: 0.5rem;
+    margin-left: 0.5rem;
+    transition-duration: 0.5s;
+    padding: 5px;
+    background-color: #0044FF;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    color: rgb(211, 210, 210);
+    font-family:Georgia, 'Times New Roman', Times, serif;
 }
 
 .cadastrarLivro:hover{
     transform: translate(0, -2px);
-    color: rgb(49, 49, 49);
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    color: black;
+
 }
 
 .top{

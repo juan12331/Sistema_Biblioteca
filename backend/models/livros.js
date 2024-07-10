@@ -21,7 +21,7 @@ const livros = database.define('livros', {
         allowNull: false
     },
     data_criacao: {
-        type: Sequelize.DATE,
+        type: Sequelize.STRING,
         allowNull: false
     },
     editora: {
