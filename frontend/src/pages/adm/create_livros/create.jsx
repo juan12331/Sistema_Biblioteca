@@ -4,6 +4,11 @@ import Sidebar from '../../../components/Drawer';
 import Button from '@mui/material/Button';
 import { createLivros, getAutores } from '../../../services/APIservice';
 
+import CancelIcon from '@mui/icons-material/Cancel';
+import SendIcon from '@mui/icons-material/Send';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import './create.css'
+
 // nome, genero, data_criacao, editora, qtd_disponivel, id_autor
 
 const create = () => {
@@ -17,8 +22,9 @@ const create = () => {
 
     function PegarAutores() {
         getAutores().then(data => {
+            console.log(data)
             setAutores(data)
-        console.log(data);
+            console.log(data);
         })
     }
 
@@ -46,7 +52,7 @@ const create = () => {
         } if (!rageQuantidade.test(quantidade)) {
             showError('não temos tantos livros assim pae')
             return
-        } if(!rageLetras.test(quantidade)) {
+        } if (!rageLetras.test(quantidade)) {
             showError('insira uma quantidade valida')
             return
         } if (!rageLetras.test(data)) {
@@ -65,36 +71,59 @@ const create = () => {
         span.textContent = message;
     }
 
-    
+    function voltar() {
+        window.location.href = "/Adm/Livros"
+    }
+
+
     return (
         <div>
             <div className="header">
                 <Sidebar />
                 <div className="text">
-                REGISTRAR LIVROS
-            </div>
-            <button className='button1 delete' >sair</button>
+                    REGISTRAR LIVROS
+                </div>
+                <button className='button1 delete' >sair</button>
 
             </div>
 
-            <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' />
-            <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' />
-            <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
-            <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' />
-            <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' />
-            <select value={autorId} onChange={(e) => setId(e.target.value)} className='select'>
-                <option value="">Selecione</option>
-                {autores.map((autor) => (
-                    <option value={autor.id_autor}>{autor.autor}</option>
-                ))
 
-                }
-            </select>
-            <span className='span aviso' id='span'></span>
-            <Button variant="contained" color="success" onClick={Criar}>Enviar</Button>
-            
+            <div className="alinhar">
+                <div className="row">
+                    <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
+                </div>
 
-            
+                <div className="row">
+                    <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' className='textInput' />
+                    <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInput' />
+                </div>
+
+                <div className="row">
+                    <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
+                    <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                </div>
+                <div className="row">
+                    <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
+                        <option value="">Selecione o autor</option>
+                        {autores.map((autor) => (
+                            <option value={autor.id_autor}>{autor.autor} </option>
+                        ))
+
+                        }
+                    </select>
+                </div>
+                <div className="row">
+                    <span className='span aviso' id='span'></span>
+                </div>
+                <div className="row">
+                <Button variant="contained" startIcon={<SendIcon />} onClick={Criar} className='button'>Enviar</Button>
+                <div className="margin">
+                <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
+                </div>
+                </div>
+            </div>
+
+
         </div>
     )
 }
