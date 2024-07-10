@@ -29,7 +29,7 @@ routes.post('/livros', LivrosControllers.createLivros)
 
 routes.get('/livros', LivrosControllers.getLivros)
 routes.get('/livros/:id', LivrosControllers.getLivrosById)
-routes.get('/livros/:autor', LivrosControllers.getLivrosByAutores)
+routes.get('/livros/autores/:id_autor', LivrosControllers.getLivrosByAutores)
 
 routes.delete('/livros/:id', LivrosControllers.deleteLivros)
 

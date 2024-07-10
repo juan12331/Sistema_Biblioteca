@@ -1,6 +1,5 @@
 const { Op } = require('sequelize');
 const Autores = require('../models/autores');
-const livros = require('../models/livros')
 
 exports.createAutor = async (req, res) => {
     const verificacao = await Autores.findByPk(req.params.id_autor);
@@ -37,4 +36,19 @@ exports.getAutor = async (req, res) => {
         console.error(error)
         return res.status(500).send('Internal Server Error');
     }
+}
+
+exports.deleteAutor = async (req, res) => {
+     try {
+        const pegaAutor = Autores.findOne({ where: {id_autor: req.params.id_autor}})
+        if (pegaAutor) {    
+            await pegaAutor.destroy();
+            return res.status(200).send("Usuario deletado com sucesso")
+        }
+
+            return res.status(404).send('Autor not found!')
+
+     }catch (error ) {
+        return res.status(500).send('Internal Server Erro')
+     }
 }

@@ -40,8 +40,10 @@ exports.deleteLivros = async (req, res) => {
     
     try{
         const encontaLivro = await Livros.findByPk(req.params.id)
+        if (encontaLivro) {
         await encontaLivro.destroy();
         return res.send('usuario deletado')
+    }
     } catch(err) {
         return res.send('aqui deu erro mn se liga', err)
     }
@@ -79,7 +81,7 @@ exports.getLivrosById = async (req, res) => {
  
 exports.getLivrosByAutores = async (req, res) => {
     try{
-        const encontraLivro = await Livros.findAll({where: {autor: req.params.autor}})
+        const encontraLivro = await Livros.findAll({where: {id_autor: req.params.id_autor}, include: autores })
         return res.send(encontraLivro)
     }catch{
         return res.status(500).send('Internal Server Error');
