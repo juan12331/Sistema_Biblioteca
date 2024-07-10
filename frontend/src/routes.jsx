@@ -1,3 +1,4 @@
+//importando biblioteca
 import { Route, Routes } from "react-router-dom";
 
 //rotas dos administradores
@@ -8,6 +9,7 @@ import Livros from "./pages/adm/livros/livros"
 import CreateLivros from "./pages/adm/create_livros/create"
 import UpdateLivros from "./pages/adm/update_livros/update"
 import Autores from "./pages/adm/autores/autores"
+import UpdateAutor from "./pages/adm/update_autores/updateAutor"
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
@@ -25,6 +27,8 @@ function MainRoutes() {
       <Route path="/Adm/Create_Livros" element={<CreateLivros/>}/>
       <Route path="/Adm/Atualizar_livros/:id" element={<UpdateLivros/>}/>
       <Route path="/Adm/Autores" element={<Autores/>}/>
+      <Route path="/Adm/Atualizar_autor/:id_autor" element={<UpdateAutor/>}/>
+
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />

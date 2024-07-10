@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../../../components/Drawer';
 
-import { getAutores, getLivrosByAutores,  } from '../../../services/APIservice';
+import { getAutores, getLivrosByAutores, deleteAutores } from '../../../services/APIservice';
 
 
 const autores = () => {
