@@ -2,7 +2,6 @@ const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime');
 
-
 const autores = database.define('autores', {
     id_autor: {
         type: Sequelize.INTEGER,
@@ -16,6 +15,6 @@ const autores = database.define('autores', {
         AllowNUll: false,
     }
 });
-
-
-module.exports = autores
+   
+  
+module.exports = autores 

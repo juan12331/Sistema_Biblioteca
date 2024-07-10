@@ -15,8 +15,6 @@ const livros = () => {
 
     function getBooks() {
         getLivros({nome: search, genero: search}).then(data => {
-            // setLivros(data)
-            console.log(data)
             setLivros(data)
         }).catch(err => console.log("deu erro :(", err))
         
