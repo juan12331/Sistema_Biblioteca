@@ -90,6 +90,9 @@ const update = () => {
         window.location.href = '/Adm/Livros'
     }
 
+    function sair() {
+        window.location.href = "/Cadastro"
+    }
 
   return (
     <>

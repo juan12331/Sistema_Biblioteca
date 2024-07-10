@@ -2,6 +2,11 @@ import React from 'react'
 import Sidebar from '../../../components/Drawer'
 
 const reclamacoes = () => {
+
+  function sair() {
+    window.location.href = "/Cadastro"
+}
+
   return (
     <div className="header">
       <Sidebar/>

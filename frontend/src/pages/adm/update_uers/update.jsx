@@ -73,6 +73,10 @@ useEffect(() => {
   preencher(cpf)
 }, [])
 
+function sair() {
+  window.location.href = "/Cadastro"
+}
+
 
   return (
     <>
@@ -89,22 +93,21 @@ useEffect(() => {
     <div className='Aling'>
             <div className="row">
                 
-                <div className="col">
-                    <input className="outlined-basic" label="Nome" variant="outlined" type="text" value={nome} onChange={(e) => setName(e.target.value)} />
-                </div>
-                <div className="col">
-                      <input type="text" label='telefone' value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
-                </div>
+                
+                    <input type="text" className='InputText' value={nome} onChange={(e) => setName(e.target.value)} />
+               
+                
+                      <input type="text" className='InputText' value={telefone} onChange={(e) => setTelefone(e.target.value)}/>
+             
             </div>
 
             <div className="row">
 
-                <div className="col">
-                    <input className="outlined-basic" label="email" variant="outlined" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
-                </div>
-                <div className="col">
-                    <input className="outlined-basic" label="Senha" variant="outlined" type="text" value={senha} onChange={(e) => setSenha(e.target.value)} />
-                </div>
+               
+                    <input className='InputText' variant="outlined" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+               
+                    <input className='InputText' variant="outlined" type="text" value={senha} onChange={(e) => setSenha(e.target.value)} />
+                
 
             </div>
 

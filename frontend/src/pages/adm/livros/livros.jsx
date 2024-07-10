@@ -42,6 +42,10 @@ const livros = () => {
         window.location.href = `/Adm/Atualizar_livros/${id}`
       }
 
+      function sair() {
+        window.location.href = "/Cadastro"
+    }
+
     return (
         <div><div className="header">
             <Sidebar />

@@ -44,6 +44,10 @@ const users = () => {
     return `${day}/${month}/${year}`;
   }
 
+  function sair() {
+    window.location.href = "/Cadastro"
+}
+
   return (
     <>
       <div className="header">
