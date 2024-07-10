@@ -76,3 +76,12 @@ exports.getLivrosById = async (req, res) => {
         return res.status(500).send('Internal Server Error');
     }
 }
+ 
+exports.getLivrosByAutores = async (req, res) => {
+    try{
+        const encontraLivro = await Livros.findAll({where: {autor: req.params.autor}})
+        return res.send(encontraLivro)
+    }catch{
+        return res.status(500).send('Internal Server Error');
+    }
+}

@@ -73,6 +73,7 @@ const create = () => {
     function voltar() {
         window.location.href = "/Adm/Livros"
     }
+    
     function sair() {
         window.location.href = "/Cadastro"
     }

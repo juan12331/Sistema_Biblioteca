@@ -1,5 +1,6 @@
 const { Op } = require('sequelize');
 const Autores = require('../models/autores');
+const livros = require('../models/livros')
 
 exports.createAutor = async (req, res) => {
     const verificacao = await Autores.findByPk(req.params.id_autor);
