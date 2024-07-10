@@ -41,6 +41,21 @@ export async function getAutores(params) {
     return response.data
 }
 
+export async function createAutor(autor){
+    const response = await http.create('/autores', {autor: autor})
+    return response.data
+}
+
+export async function deleteAutor(id_autor) {
+    const response = await http.delete(`/autores/${id_autor}`)
+    return;
+}
+
+export async function updateAutor(id_autor, autor) {
+    const response = await http.put(`/autores/${id_autor}`, {autor: autor})
+    return response.data;
+}
+
 //funções dos livros
 
 

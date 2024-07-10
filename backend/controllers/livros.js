@@ -51,7 +51,6 @@ exports.deleteLivros = async (req, res) => {
 
 exports.updateLivro = async (req, res) => {
     const id = req.params.id
-    console.log(id)
     const idLivro = await Livros.findOne({ where: { id_livro: id } })
     if (idLivro) {
         try {

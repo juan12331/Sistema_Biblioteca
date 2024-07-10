@@ -49,6 +49,20 @@ exports.deleteAutor = async (req, res) => {
             return res.status(404).send('Autor not found!')
 
      }catch (error ) {
-        return res.status(500).send('Internal Server Erro')
+        return res.status(500).send('Internal Server Error')
      }
+}
+
+exports.updateAutor = async (req, res) => {
+    try {
+        const id = req.params.id_autor
+        const verificaAutor = await Autores.findOne({ where: {id_autor: id}})
+        if (verificaAutor) {
+            const [Updates] = await Autores.update(req.body, { where:  { id_autor: id } })
+            return res.status(200).send("Autor Updatado com sucesso!!")
+        }
+        return res.status(404).send('Autor not Found!!!')
+    } catch (error) {
+        return res.status(500).send('Internal Server Error')
+    }
 }
