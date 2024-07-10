@@ -7,6 +7,7 @@ import Person3Icon from '@mui/icons-material/Person3';
 import './Drawer.css'
 import CampaignIcon from '@mui/icons-material/Campaign';
 import AutoStoriesIcon from '@mui/icons-material/AutoStories';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 import React from 'react'
 import { useState } from 'react'
@@ -31,6 +32,7 @@ const Sidebar = () => {
             <a href="/Adm/Users" ><Person3Icon className="icon" /> Usuarios</a>
             <a href="/Adm/Reclamacoes" > <CampaignIcon className="icon" /> Reclamações</a>
             <a href="/Adm/Livros" > <AutoStoriesIcon className="icon" /> Livros</a>
+            <a href="/Cadastro" > <LogoutIcon className="icon" /> Sair</a>
           </div>
         </Box>
       </Drawer>

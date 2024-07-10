@@ -6,6 +6,9 @@ import { updateUser, getUsersByCpf } from '../../../services/APIservice';
 import Button from '@mui/material/Button';
 import './update.css'
 
+import CancelIcon from '@mui/icons-material/Cancel';
+import SendIcon from '@mui/icons-material/Send';
+
 //cpf, nome, email, senha, papel, telefone
 
 const update = () => {
@@ -92,6 +95,10 @@ const update = () => {
     window.location.href = "/Cadastro"
   }
 
+  function voltar() {
+    window.location.href = '/Adm/Users'
+  }
+
 
   return (
     <>
@@ -112,7 +119,7 @@ const update = () => {
             <input type="text" className='InputText' value={nome} onChange={(e) => setName(e.target.value)} />
 
 
-            <input type="text" className='InputText' value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+            <input type="text" className='InputText' value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} />
 
           </div>
 
@@ -131,8 +138,8 @@ const update = () => {
             <option value="adm">adm</option>
           </select>
           <span className='span aviso' id='span'></span>
-          <Button variant="contained" color="success" onClick={Atualizar}>Enviar</Button>
-
+          <Button variant="contained" color="success" startIcon={<SendIcon/>} onClick={Atualizar}>Enviar</Button>
+          <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
         </div>
       </div>
     </>

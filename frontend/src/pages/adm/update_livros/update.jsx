@@ -11,7 +11,7 @@ import './update.css'
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 
 const update = () => {
 

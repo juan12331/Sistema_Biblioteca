@@ -12,6 +12,8 @@ const create = () => {
     const rageEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     const rageSenha = /^(?=.*[A-Z])(?=.*\d).+$/;
     const rageCaracter =  /^.{8,}$/;
+    const regexMaisDe14Caracteres = /^.{15,}$/
+    
 
     const [cpf, setCpf] = useState('')
     const [nome, setName] = useState('')
@@ -19,6 +21,28 @@ const create = () => {
     const [senha, setSenha] = useState('')
     const [confirmar, setConfirmar] = useState('')
     const [telefone, setTelefone] = useState('')
+
+    function formatCPF(cpf) {
+        // Limpa todos os caracteres não numéricos
+        cpf = cpf.replace(/\D/g, '');
+    
+        // Formatação do CPF
+        return cpf.replace(/(\d{3})(\d{3})(\d{3})(\d{2})/, '$1.$2.$3-$4');
+    }
+
+    function formatPhoneNumber(phoneNumber) {
+        // Limpa todos os caracteres não numéricos
+        phoneNumber = phoneNumber.replace(/\D/g, '');
+    
+        // Formatação do número de acordo com o padrão desejado
+        if (phoneNumber.length === 11) {
+            return phoneNumber.replace(/(\d{2})(\d{1})(\d{4})(\d{4})/, '($1) $2 $3-$4');
+        } else if (phoneNumber.length === 10) {
+            return phoneNumber.replace(/(\d{2})(\d{4})(\d{4})/, '($1) $2-$3');
+        } else {
+            return phoneNumber;
+        }
+    }
 
     function Criar() {
         if (senha != confirmar) {
@@ -38,13 +62,16 @@ const create = () => {
           } if (!rageCaracter.test(senha)) {
             showError('senha precisa no minimo de 8 caracteres')
             return
+          } if (regexMaisDe14Caracteres.test(cpf)) {
+            showError('Cpf incorreto')
+            return
+          } if (regexMaisDe14Caracteres.test(telefone)) {
+            showError('telefone não suportado/incorreto')
+            return
           }
 
         createUser(cpf, nome, email, senha, telefone).then(data => {
-            if (data == "usuario ja foi cadastrado") {
-                showError(data)
-                return
-            }
+            
             // window.location.href = "/login"
 
         }).catch(err => console.log(err))
@@ -64,7 +91,7 @@ const create = () => {
         <div className='Aling'>
             <div className="row">
                 <div className="col">
-                    <TextField className="outlined-basic" label="CPF" variant="outlined" type="text" value={cpf} onChange={(e) => setCpf(e.target.value)} />
+                    <TextField className="outlined-basic" label="CPF" variant="outlined" type="text" value={cpf} onChange={(e) => setCpf(formatCPF(e.target.value))} />
                 </div>
                 <div className="col">
                     <TextField className="outlined-basic" label="Nome" variant="outlined" type="text" value={nome} onChange={(e) => setName(e.target.value)} />
@@ -88,7 +115,7 @@ const create = () => {
                 </div>
 
                 <div className="col">
-                    <TextField className="outlined-basic" label="Telefone" variant="outlined" type="text" value={telefone} onChange={(e) => setTelefone(e.target.value)} />
+                    <TextField className="outlined-basic" label="Telefone" variant="outlined" type="text" value={telefone} onChange={(e) => setTelefone(formatPhoneNumber(e.target.value))} />
                 </div>
             
             </div>
