@@ -4,23 +4,23 @@ const Usuarios = require('../models/usuarios');
 
 exports.login = async (req, res) => {
     try {
-        const {email, senha} = req.body;
-        const usuario = await Usuarios.findOne({ where: {email, senha}})
-        const encontrarUsuario = await Usuarios.findOne({ where: usuario})
+        const { email, senha } = req.body;
+        const usuario = await Usuarios.findOne({ where: { email, senha } })
+        const encontrarUsuario = await Usuarios.findOne({ where: usuario })
         if (encontrarUsuario) {
             return res.send(encontrarUsuario);
         }
         return res.status(404).send('Usuario not found');
-    } catch (error ) {
+    } catch (error) {
         return res.status(500).send('Internal Server error')
     }
 }
 
 exports.getUsers = async (req, res) => {
     try {
-        const { nome, email} = req.query || {};
+        const { nome, email } = req.query || {};
 
-        if(!nome && !email ) {
+        if (!nome && !email) {
             const usuarios = await Usuarios.findAll();
             return res.send(usuarios)
         }
@@ -33,7 +33,7 @@ exports.getUsers = async (req, res) => {
             ].filter(Boolean)
         }
 
-        const usuarios = await Usuarios.findAll({ where: pesquisa})
+        const usuarios = await Usuarios.findAll({ where: pesquisa })
         return res.send(usuarios)
 
     } catch (error) {
@@ -55,18 +55,22 @@ exports.getUsersByCpf = async (req, res) => {
 }
 
 exports.createUsuario = async (req, res) => {
-    const verificacao = await Usuarios.findByPk(req.params.cpf);
-    if (verificacao){
-        return res.send ('usuario ja foi cadastrado')
-    }
+    try {
+        const verificacao = await Usuarios.findByPk(req.params.cpf);
+        if (verificacao) {
+            return res.send('usuario ja foi cadastrado')
+        }
 
-    const usuarioCriado = await Usuarios.create(req.body)
-    console.log(usuarioCriado)
-    return res.send('usuario cadastrado com sucesso')
+        const usuarioCriado = await Usuarios.create(req.body)
+        console.log(usuarioCriado)
+        return res.send('usuario cadastrado com sucesso')
+    } catch (err) {
+        return res.status(403).send('erro')
+    }
 }
 
 exports.deleteUsuario = async (req, res) => {
-    const encontrarUsuario = await Usuarios.findOne({ where: {cpf: req.params.cpf}})
+    const encontrarUsuario = await Usuarios.findOne({ where: { cpf: req.params.cpf } })
     try {
         await encontrarUsuario.destroy();
         return res.send('usuario deletado')
@@ -78,7 +82,7 @@ exports.deleteUsuario = async (req, res) => {
 exports.updateUsuario = async (req, res) => {
     const Cpf = req.params.cpf
     console.log(Cpf)
-    const CpfUsuario = await Usuarios.findOne({where: {cpf: Cpf}})
+    const CpfUsuario = await Usuarios.findOne({ where: { cpf: Cpf } })
     console.log(CpfUsuario)
 
     if (CpfUsuario) {
@@ -91,5 +95,5 @@ exports.updateUsuario = async (req, res) => {
 
         }
     }
-    return res.send ('usuario not found!!!')
+    return res.send('usuario not found!!!')
 }

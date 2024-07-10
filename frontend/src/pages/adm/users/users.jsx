@@ -26,8 +26,9 @@ const users = () => {
   }, [])
 
 
-  async function deletar(cpf) {
-    await deleteUser(cpf)
+  async function deletar(id) {
+    console.log(id)
+    await deleteUser(id)
     getButton()
   }
 

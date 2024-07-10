@@ -26,7 +26,13 @@ routes.post('/autores', AutoresControllers.createAutor)
 //funções dos livros
 
 routes.post('/livros', LivrosControllers.createLivros)
+
 routes.get('/livros', LivrosControllers.getLivros)
+routes.get('/livros/:id', LivrosControllers.getLivrosById)
+
+routes.delete('/livros/:id', LivrosControllers.deleteLivros)
+
+routes.put('/livros/:id', LivrosControllers.updateLivro)
 
 //funções das reclamacoes
 
@@ -35,5 +41,7 @@ routes.post('/reclamacoes', ReclamacoesControllers.createReclamacoes)
 routes.delete('/reclamacoes/:cpf_usuario', ReclamacoesControllers.deleteReclamacoes)
 
 routes.get('/reclamacoes', ReclamacoesControllers.getAllReclamacoes)
+
+//funções das avaliações
 
 module.exports = routes

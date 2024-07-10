@@ -57,3 +57,8 @@ export async function getLivros(params) {
     const response = await http.get('/livros', {params})
     return response.data;
 }
+
+export async function deleteLivros(id) {
+    const response = await http.delete(`/livros/${id}`)
+    return
+}

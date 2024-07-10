@@ -29,9 +29,50 @@ exports.getLivros = async (req, res) => {
         ].filter(Boolean)
     }
 
-    const livros = await Livros.findAll({ where: pesquisa})
+    const livros = await Livros.findAll({ where: pesquisa, include: autores})
 
     
     
     return res.send(livros)
+}
+
+exports.deleteLivros = async (req, res) => {
+    
+    try{
+        const encontaLivro = await Livros.findByPk(req.params.id)
+        await encontaLivro.destroy();
+        return res.send('usuario deletado')
+    } catch(err) {
+        return res.send('aqui deu erro mn se liga', err)
+    }
+}
+
+exports.updateLivro = async (req, res) => {
+    const id = req.params.id
+    console.log(id)
+    const idLivro = await Usuarios.findOne({ where: { id_livro: id } })
+    if (idLivro) {
+        try {
+            const [Updates] = await Livros.update(req.body, { where:  { id_livro: id } }) // verifica se tem alguma alteração
+            return res.send({ message: 'Livro atualizado', })
+
+        } catch (error) {
+            return res.send('putz... deu erro aqui meu mano ==> ', error)
+
+        }
+    }
+    return res.send('esse livro nem existe mano?_?')
+}
+
+
+exports.getLivrosById = async (req, res) => {
+    try {
+        const encontaLivro = await Livros.findByPk(req.params.id);
+        if (!encontaLivro) {
+            return res.status(404).send('Book not found');
+        }
+        return res.send(encontaLivro);
+    } catch (error) {
+        return res.status(500).send('Internal Server Error');
+    }
 }
