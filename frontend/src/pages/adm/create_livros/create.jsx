@@ -73,7 +73,7 @@ const create = () => {
                 <div className="text">
                 REGISTRAR LIVROS
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
 
             </div>
 

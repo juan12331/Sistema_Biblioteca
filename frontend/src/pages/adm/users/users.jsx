@@ -51,14 +51,14 @@ const users = () => {
         <div className="text">
                 USUARIOS
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
 
       </div>
       <div className="users">
         <div className="top">
           <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
           <Button variant="contained" color="success" onClick={getButton} className='sucess' >Pesquisar</Button>
-          <button className='button1 delete' >sair</button>
+          
         </div>
 
         <div className="cardWrap">

@@ -81,7 +81,7 @@ useEffect(() => {
       <div className="text">
                 ATUALIZAR USUARIOS
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
 
     </div>
     

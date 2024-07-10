@@ -94,7 +94,7 @@ const update = () => {
             <div className="text">
                 ATUALIZAR LIVROS
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
         </div>
 
         <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' />

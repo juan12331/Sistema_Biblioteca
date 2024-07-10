@@ -48,7 +48,7 @@ const livros = () => {
             <div className="text">
                 LIVROS
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
         </div>
             <div className="top">
             <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />

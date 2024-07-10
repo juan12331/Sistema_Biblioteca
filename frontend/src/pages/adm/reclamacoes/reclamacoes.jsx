@@ -8,7 +8,7 @@ const reclamacoes = () => {
       <div className="text">
                 RECLAMAÇÕES
             </div>
-            <span></span>
+            <button className='button1 delete' >sair</button>
 
     </div>
   )
