@@ -9,6 +9,10 @@ import { useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import './update.css'
 
+import CancelIcon from '@mui/icons-material/Cancel';
+import SendIcon from '@mui/icons-material/Send';
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+
 const update = () => {
 
     const { id } = useParams()
@@ -94,24 +98,43 @@ const update = () => {
             <div className="text">
                 ATUALIZAR LIVROS
             </div>
-            <button className='button1 delete' >sair</button>
+            <button className='button1 delete' onClick={sair} >sair</button>
         </div>
 
-        <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' />
-            <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' />
-            <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' />
-            <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' />
-            <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' />
-            <select value={autorId} onChange={(e) => setId(e.target.value)} className='select'>
-                <option value="">Selecione</option>
-                {autores.map((autor) => (
-                    <option value={autor.id_autor}>{autor.autor}</option>
-                ))
+        <div className="alinhar">
+                <div className="row">
+                    <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
+                </div>
 
-                }
-            </select>
-            <span className='span aviso' id='span'></span>
-            <Button variant="contained" color="success" onClick={update}>Enviar</Button>
+                <div className="row">
+                    <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' className='textInput' />
+                    <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInput' />
+                </div>
+
+                <div className="row">
+                    <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
+                    <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                </div>
+                <div className="row">
+                    <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
+                        <option value="">Selecione o autor</option>
+                        {autores.map((autor) => (
+                            <option value={autor.id_autor}>{autor.autor} </option>
+                        ))
+
+                        }
+                    </select>
+                </div>
+                <div className="row">
+                    <span className='span aviso' id='span'></span>
+                </div>
+                <div className="row">
+                <Button variant="contained" startIcon={<SendIcon />} onClick={update} className='button'>Enviar</Button>
+                <div className="margin">
+                <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
+                </div>
+                </div>
+            </div>
     </>
   )
 }

@@ -6,7 +6,6 @@ import { createLivros, getAutores } from '../../../services/APIservice';
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
-import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import './create.css'
 
 // nome, genero, data_criacao, editora, qtd_disponivel, id_autor
@@ -74,6 +73,9 @@ const create = () => {
     function voltar() {
         window.location.href = "/Adm/Livros"
     }
+    function sair() {
+        window.location.href = "/Cadastro"
+    }
 
 
     return (
@@ -83,7 +85,7 @@ const create = () => {
                 <div className="text">
                     REGISTRAR LIVROS
                 </div>
-                <button className='button1 delete' >sair</button>
+                <button className='button1 delete' onClick={sair} >sair</button>
 
             </div>
 

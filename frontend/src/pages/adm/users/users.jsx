@@ -51,7 +51,7 @@ const users = () => {
         <div className="text">
                 USUARIOS
             </div>
-            <button className='button1 delete' >sair</button>
+            <button className='button1 delete' onClick={sair} >sair</button>
 
       </div>
       <div className="users">

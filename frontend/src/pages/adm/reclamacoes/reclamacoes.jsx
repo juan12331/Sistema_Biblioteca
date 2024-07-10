@@ -8,7 +8,7 @@ const reclamacoes = () => {
       <div className="text">
                 RECLAMAÇÕES
             </div>
-            <button className='button1 delete' >sair</button>
+            <button className='button1 delete' onClick={sair} >sair</button>
 
     </div>
   )
