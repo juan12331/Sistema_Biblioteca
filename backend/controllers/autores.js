@@ -3,13 +3,7 @@ const Autores = require('../models/autores');
 const Livros = require('../models/livros')
 
 exports.createAutor = async (req, res) => {
-    const verificacao = await Autores.findByPk(req.params.id_autor);
-    if (verificacao) {
-        return res.send('Autor ja existente')
-    }
-
-    const autorCriado = await Autores.create(req.body)
-    console.log(autorCriado)
+    await Autores.create(req.body)
     return res.send('Autor cadastrado com sucesso')
 }
 

@@ -29,7 +29,6 @@ export async function deleteUser(cpf) {
 }
 
 export async function updateUser(cpf, nome, email, senha, papel, telefone) {
-    console.log(cpf, nome, email, senha, papel, telefone);
     const response = await http.put(`/usuarios/${cpf}`, { nome: nome, email: email, senha: senha, papel: papel, telefone: telefone })
     return console.log(response.data);
 }
@@ -42,12 +41,11 @@ export async function getAutores(params) {
 }
 
 export async function createAutor(autor){
-    const response = await http.create('/autores', {autor: autor})
+    const response = await http.post('/autores', {autor: autor})
     return response.data
 }
 
 export async function deleteAutores(id_autor) {
-    console.log(id_autor)
     const response = await http.delete(`/autores/${id_autor}`)
     return;
 }
