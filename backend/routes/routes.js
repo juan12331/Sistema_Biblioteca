@@ -20,6 +20,7 @@ routes.put('/usuarios/:cpf', UsuariosControllers.updateUsuario)
 //função dos autores
 
 routes.get('/autores', AutoresControllers.getAutor)
+routes.get('/autores/:id', AutoresControllers.getAutoresById)
 
 routes.post('/autores', AutoresControllers.createAutor)
 

@@ -5,7 +5,7 @@ import { useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
-import { updateAutores } from '../../../services/APIservice';
+import { updateAutores, get } from '../../../services/APIservice';
 
 const updateAutor = () => {
 
