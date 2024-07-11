@@ -28,7 +28,7 @@ function MainRoutes() {
       <Route path="/Adm/Create_Livros" element={<CreateLivros/>}/>
       <Route path="/Adm/Atualizar_livros/:id" element={<UpdateLivros/>}/>
       <Route path="/Adm/Autores" element={<Autores/>}/>
-      <Route path="/Adm/Atualizar_autor/:id_autor" element={<UpdateAutor/>}/>
+      <Route path="/Adm/Atualizar_autor/:id" element={<UpdateAutor/>}/>
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores/>}/>
 
 

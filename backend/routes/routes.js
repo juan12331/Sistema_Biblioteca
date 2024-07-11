@@ -23,9 +23,9 @@ routes.get('/autores', AutoresControllers.getAutor)
 
 routes.post('/autores', AutoresControllers.createAutor)
 
-routes.delete('/autores/:id_autor', AutoresControllers.deleteAutor)
+routes.delete('/autores/:id', AutoresControllers.deleteAutor)
 
-routes.put('/autores/:id_autor', AutoresControllers.updateAutor)
+routes.put('/autores/:id', AutoresControllers.updateAutor)
 
 //funções dos livros
 

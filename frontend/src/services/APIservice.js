@@ -45,13 +45,13 @@ export async function createAutor(autor){
     return response.data
 }
 
-export async function deleteAutores(id_autor) {
-    const response = await http.delete(`/autores/${id_autor}`)
+export async function deleteAutores(id) {
+    const response = await http.delete(`/autores/${id}`)
     return;
 }
 
-export async function updateAutor(id_autor, autor) {
-    const response = await http.put(`/autores/${id_autor}`, {autor: autor})
+export async function updateAutores(id, autor) {
+    const response = await http.put(`/autores/${id}`, {autor: autor})
     return response.data;
 }
 

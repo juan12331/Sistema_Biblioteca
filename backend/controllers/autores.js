@@ -42,7 +42,7 @@ exports.getAutor = async (req, res) => {
 }
 
 exports.deleteAutor = async (req, res) => {
-    const pegaAutor = Autores.findByPk(req.params.id_autor)
+    const pegaAutor = Autores.findByPk(req.params.id)
     try {
         if (pegaAutor) {
             console.log('ok')
@@ -59,7 +59,7 @@ exports.deleteAutor = async (req, res) => {
 
 exports.updateAutor = async (req, res) => {
     try {
-        const id = req.params.id_autor
+        const id = req.params.id
         const verificaAutor = await Autores.findOne({ where: { id_autor: id } })
         if (verificaAutor) {
             const [Updates] = await Autores.update(req.body, { where: { id_autor: id } })
