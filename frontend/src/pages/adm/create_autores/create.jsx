@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../../../components/Drawer';
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import Button from '@mui/material/Button';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
