@@ -32,7 +32,6 @@ function MainRoutes() {
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores/>}/>
 
 
-
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
     </Routes>
