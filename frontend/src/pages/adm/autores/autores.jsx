@@ -51,7 +51,7 @@ const autores = () => {
             </div>
             <div className="top">
             <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
-            <Button variant="contained" color="success"  className='sucess' >Pesquisar</Button>
+            <Button variant="contained" color="success"  className='sucess' onClick={getAutor   } >Pesquisar</Button>
                 <a href="/Adm/Create_Livros" className='cadastrarLivro' >Cadastrar Autor</a>
             </div>
 

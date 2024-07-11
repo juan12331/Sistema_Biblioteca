@@ -60,8 +60,9 @@ const create = () => {
         }
 
         createLivros(nome, genero, data, editora, quantidade, autorId).then(data => {
-            window.location.href = "/Adm/Livros"
+            voltar()
         }).catch(err => console.log(err))
+        voltar()
     }
 
 
