@@ -8,8 +8,8 @@ const reclamacoes = require('./models/reclamacoes')
 const avaliacao = require('./models/avaliacao')
 
 usuarios.sync();
-livros.sync();
 autores.sync();
+livros.sync();
 reclamacoes.sync();
 avaliacao.sync();
 
