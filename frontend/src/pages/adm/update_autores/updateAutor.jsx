@@ -1,17 +1,25 @@
 import React from 'react'
 import Sidebar from '../../../components/Drawer';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
-import { updateAutores, get } from '../../../services/APIservice';
+import { updateAutores, getAutoresById } from '../../../services/APIservice';
 
 const updateAutor = () => {
 
   const { id } = useParams()
 
   const [nome, setName] = useState('')
+
+  function preencher(id){
+    getAutoresById(id).then(data => {
+      console.log(data)
+      setName(data.autor)      
+    }).catch(err => console.log(err))
+  }
+
 
   function atualizar() {
     if (nome == '') {
@@ -37,6 +45,11 @@ function sair() {
     const span = document.getElementById('span');
     span.textContent = message;
 }
+
+useEffect(() => {
+  preencher(id)
+}, [])
+
   return (
     <>
 

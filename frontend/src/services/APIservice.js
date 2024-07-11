@@ -40,6 +40,11 @@ export async function getAutores(params) {
     return response.data
 }
 
+export async function getAutoresById(id) {
+    const response = await http.get(`/autores/${id}`)
+    return response.data
+}
+
 export async function createAutor(autor){
     const response = await http.post('/autores', {autor: autor})
     return response.data

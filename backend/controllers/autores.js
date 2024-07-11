@@ -73,7 +73,7 @@ exports.updateAutor = async (req, res) => {
 
 exports.getAutoresById = async (req, res) => {
     try{
-        const Autor = Autores.findOne({ where: {id_autor: req.params.id }})
+        const Autor = await Autores.findOne({ where: {id_autor: req.params.id }})
         return res.status(200).send(Autor)
     } catch{
         return res.status(500).send('Internal Server Error')
