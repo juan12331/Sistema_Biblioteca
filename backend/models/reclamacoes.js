@@ -9,11 +9,14 @@ const reclamacoes = database.define('reclamacoes', {
         type: Sequelize.STRING,
         AllowNUll: false,
         primaryKey: true,
+        autoIncrement: true,
+    },
+    assunto: {
+        type: Sequelize.STRING,
     },
     
     cpf_usuario: {
         type: Sequelize.STRING,
-        AllowNUll: false,
         references: {
             model: usuarios,
             key: 'cpf'
@@ -26,10 +29,10 @@ const reclamacoes = database.define('reclamacoes', {
 
 
 // usuarios.hasmany(reclamacoes, {
-//     foreignKey: 'cpf_usuario'
+//   foreignKey: 'cpf_usuario'
 // })
 
-// reclamacoes.belongsTo(usuarios);
+reclamacoes.belongsTo(usuarios);
 
 
 module.exports = reclamacoes

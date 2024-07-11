@@ -2,9 +2,12 @@ const { Op } = require('sequelize');
 const Reclamacoes = require('../models/reclamacoes');
 
 exports.createReclamacoes = async (req, res) => {
-    const createReclamacoes = await Reclamacoes.create(req.body);
-    console.log(createReclamacoes);
-    return res.send('reclamão')
+    try {
+    await Reclamacoes.create(req.body)
+    return res.status(201)
+    } catch (err) {
+        return res.status(500).send('Internal Server Error')
+    }
 }
 
 exports.deleteReclamacoes = async (req, res) => {
