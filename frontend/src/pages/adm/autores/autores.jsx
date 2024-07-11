@@ -4,14 +4,13 @@ import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
 
 
-import { getAutores, getLivrosByAutores, deleteAutores } from '../../../services/APIservice';
+import { getAutores, deleteAutores } from '../../../services/APIservice';
 
 
 const autores = () => {
 
   const [search, setSearch] = useState([])
   const [autores, setAutores] = useState([])
-  const [livros, setLivros] = useState([])
 
     function sair() {
         window.location.href = "/Cadastro"
@@ -19,15 +18,10 @@ const autores = () => {
 
     function getAutor() {
       getAutores({ autor: search }).then(data => {
-        setAutores(data)})
-      
-    }
-
-    function getLivosDosAutores(id_autor) {
-      getLivrosByAutores(id_autor).then(data => {
-        setLivros(data)
+        setAutores(data)
         console.log(data)
       })
+      
     }
 
     useEffect(() => {
@@ -67,16 +61,13 @@ const autores = () => {
               <div className="nome">
                 {autor.autor}
               </div>
-              <button onClick={() => {getLivosDosAutores(autor.id_autor)}}>livros</button>
               <span>Livros: </span> 
-                {livros.map((livros) => (
-                
-                  <div className="email" key={livros}>
-                   {livros}
-                  </div>
+              {autor.livros.map((livros) => (
+                <div className="livros"> { livros.nome }</div>
               ))
 
-              }  
+              }
+                
               
                <button value={autor.id_autor} id='delete' className='button1 delete' onClick={() => deletar(autor.id_autor)}> Deletar </button>
               <button value={autor.id_autor} id='edit' className='button1 edit' onClick={() => redirecionarUpdate(autor.id_autor)}> Editar </button>

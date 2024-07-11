@@ -1,10 +1,11 @@
 const { Op } = require('sequelize');
 const Autores = require('../models/autores');
+const Livros = require('../models/livros')
 
 exports.createAutor = async (req, res) => {
     const verificacao = await Autores.findByPk(req.params.id_autor);
-    if (verificacao){
-        return res.send ('Autor ja existente')
+    if (verificacao) {
+        return res.send('Autor ja existente')
     }
 
     const autorCriado = await Autores.create(req.body)
@@ -14,10 +15,14 @@ exports.createAutor = async (req, res) => {
 
 exports.getAutor = async (req, res) => {
     try {
-        const { id_autor, autor} = req.query || {};
+        const { id_autor, autor } = req.query || {};
 
-        if(!id_autor && !autor ) {
-            const autores = await Autores.findAll();
+        if (!id_autor && !autor) {
+            const autores = await Autores.findAll({
+                include: [{
+                    model: Livros
+                }]
+            });
             return res.send(autores)
         }
 
@@ -29,7 +34,11 @@ exports.getAutor = async (req, res) => {
             ].filter(Boolean)
         }
 
-        const autores = await Autores.findAll({ where: pesquisa})
+        const autores = await Autores.findAll({
+            where: pesquisa, include: [{
+                model: Livros, required: true, right: true // has no effect, will create an inner join
+            }]
+        })
         return res.send(autores)
 
     } catch (error) {
@@ -41,25 +50,25 @@ exports.getAutor = async (req, res) => {
 exports.deleteAutor = async (req, res) => {
     const pegaAutor = Autores.findByPk(req.params.id_autor)
     try {
-        if (pegaAutor) {    
+        if (pegaAutor) {
             console.log('ok')
             await pegaAutor.destroy();
             return res.status(200).send("Usuario deletado com sucesso")
         }
 
-            return res.status(404).send('Autor not found!')
+        return res.status(404).send('Autor not found!')
 
-     }catch (error ) {
+    } catch (error) {
         return res.status(500).send('Internal Server Error')
-     }
+    }
 }
 
 exports.updateAutor = async (req, res) => {
     try {
         const id = req.params.id_autor
-        const verificaAutor = await Autores.findOne({ where: {id_autor: id}})
+        const verificaAutor = await Autores.findOne({ where: { id_autor: id } })
         if (verificaAutor) {
-            const [Updates] = await Autores.update(req.body, { where:  { id_autor: id } })
+            const [Updates] = await Autores.update(req.body, { where: { id_autor: id } })
             return res.status(200).send("Autor Updatado com sucesso!!")
         }
         return res.status(404).send('Autor not Found!!!')

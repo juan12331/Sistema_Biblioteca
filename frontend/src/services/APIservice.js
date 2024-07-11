@@ -86,7 +86,7 @@ export async function getLivrosById(id) {
     return response.data
 }
 
-export async function getLivrosByAutores(id_autor) {
-    const response  = await http.get(`/livros/autores/${id_autor}`)
-    return response.data;
-}
+// export async function getLivrosByAutores(id_autor) {
+//     const response  = await http.get(`/livros/autores/${id_autor}`)
+//     return response.data;
+// }
