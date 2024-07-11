@@ -11,7 +11,7 @@ const create = () => {
 
     const [nome, setName] = useState('')
 
-    function criar () {
+    function criar() {
         if (nome == '') {
             showError('insira um nome valido')
             return
@@ -21,7 +21,7 @@ const create = () => {
         }).catch(err => console.log(err))
     }
 
-    function voltar () {
+    function voltar() {
         window.location.href = '/Adm/Autores'
     }
 
@@ -35,34 +35,34 @@ const create = () => {
         span.textContent = message;
     }
 
-  return (
-    <>
-    <div className="header">
+    return (
+        <>
+            <div className="header">
                 <Sidebar />
                 <div className="text">
                     AUTORES
                 </div>
                 <button className='button1 delete' onClick={sair} >sair</button>
-                </div>
+            </div>
 
-<div className="alinhar">
-    <div className="row">
-                <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
-                </div>
-                </div>
+            <div className="alinhar">
                 <div className="row">
+                    <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
+                </div>
+            </div>
+            <div className="row">
                 <span className='span aviso' id='span'></span>
-                </div>
-                <div className="row">
+            </div>
+            <div className="row">
                 <Button variant="contained" startIcon={<SendIcon />} onClick={criar} className='button'>Enviar</Button>
                 <div className="margin">
-                <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
+                    <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
                 </div>
-                </div>
-                
-                
-</>
-  )
+            </div>
+
+
+        </>
+    )
 }
 
 export default create
