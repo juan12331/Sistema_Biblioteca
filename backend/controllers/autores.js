@@ -30,7 +30,7 @@ exports.getAutor = async (req, res) => {
 
         const autores = await Autores.findAll({
             where: pesquisa, include: [{
-                model: Livros, required: true, right: true // has no effect, will create an inner join
+                model: Livros
             }]
         })
         return res.send(autores)
