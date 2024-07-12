@@ -3,47 +3,47 @@ const Reclamacoes = require('../models/reclamacoes');
 
 exports.createReclamacoes = async (req, res) => {
     try {
-    await Reclamacoes.create(req.body)
-    return res.status(201)
+        await Reclamacoes.create(req.body)
+        return res.status(201).send('Reclamação criada com sucesso')
     } catch (err) {
-        return res.status(500).send('Internal Server Error')
+        return res.status(500).send(err)
     }
-}
 
+}
 exports.deleteReclamacoes = async (req, res) => {
 
-try{
+    try {
 
-    const {cpf_usuario, reclamacao } = req.query || {}
-    if(!cpf_usuario, !reclamacao) {
-        
-        return res.status(404).send('Not Found')
+        const { cpf_usuario, reclamacao } = req.query || {}
+        if (!cpf_usuario, !reclamacao) {
+
+            return res.status(404).send('Not Found')
+        }
+
+        const acharReclamacao = {
+            [Op.and]: [
+                cpf_usuario ? { cpf_usuario: { [Op.like]: `%${cpf_usuario}%` } } : undefined,
+                reclamacao ? { reclamacao: { [Op.like]: `%${reclamacao}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const reclamacoes = await Reclamacoes.findOne({ where: acharReclamacao })
+        await reclamacoes.destroy();
+
+    } catch (err) {
+        console.error(err);
+        return res.status(500).send('Internal Server Error');
     }
-
-    const acharReclamacao = {
-        [Op.and]: [
-            cpf_usuario ? { cpf_usuario: { [Op.like]: `%${cpf_usuario}%` } } : undefined,
-            reclamacao ? { reclamacao: { [Op.like]: `%${reclamacao}%` } } : undefined,
-        ].filter(Boolean)
-    }
-
-    const reclamacoes = await Reclamacoes.findOne({ where: acharReclamacao})
-    await reclamacoes.destroy();
-
-} catch (err) {
-    console.error(err);
-    return res.status(500).send('Internal Server Error');
-}
 }
 
 exports.getAllReclamacoes = async (req, res) => {
 
-    try{
+    try {
 
-        const { cpf_usuario, reclamacao} = req.query || {};
+        const { cpf_usuario, reclamacao } = req.query || {};
         console.log('chegou aqui')
 
-        if(!cpf_usuario || !reclamacao) {
+        if (!cpf_usuario || !reclamacao) {
             const reclamacoes = await Reclamacoes.findAll();
             console.log(reclamacoes)
             return res.send(reclamacoes)
@@ -57,10 +57,10 @@ exports.getAllReclamacoes = async (req, res) => {
         }
 
         console.log('cpf_usuario')
-        const reclamacoes = await Reclamacoes.findAll({ where: pesquisa})
+        const reclamacoes = await Reclamacoes.findAll({ where: pesquisa })
         return res.send(reclamacoes)
-} catch (err) {
-    console.error(err)
-    return res.status(500).send('Internal Server Error');
-}
+    } catch (err) {
+        console.error(err)
+        return res.status(500).send('Internal Server Error');
+    }
 }

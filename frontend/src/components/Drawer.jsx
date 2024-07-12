@@ -26,7 +26,7 @@ const Sidebar = () => {
       <IconButton size='large' edge='start' color='inherit' aria-label='logo' onClick={() => setDrawerOpen(true)}>
         <MenuIcon l={2} />
       </IconButton>
-      <Drawer anchor="left" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
+      <Drawer className="drawer" anchor="left" open={isDrawerOpen} onClose={() => setDrawerOpen(false)}>
         <Box p={2} width='15rem' textAling='centter' role='presentation' >
           <Typography variant='h6' component='div' className="title" >Biblioteca Demais</Typography>
           <div className="links">

@@ -30,7 +30,7 @@ exports.getAutor = async (req, res) => {
 
         const autores = await Autores.findAll({
             where: pesquisa, include: [{
-                model: Livros, required: true, right: true // has no effect, will create an inner join
+                model: Livros
             }]
         })
         return res.send(autores)
@@ -42,10 +42,9 @@ exports.getAutor = async (req, res) => {
 }
 
 exports.deleteAutor = async (req, res) => {
-    const pegaAutor = Autores.findByPk(req.params.id)
+    const pegaAutor = await Autores.findByPk(req.params.id)
     try {
         if (pegaAutor) {
-            console.log('ok')
             await pegaAutor.destroy();
             return res.status(200).send("Usuario deletado com sucesso")
         }
@@ -53,7 +52,7 @@ exports.deleteAutor = async (req, res) => {
         return res.status(404).send('Autor not found!')
 
     } catch (error) {
-        return res.status(500).send('Internal Server Error')
+        return res.status(500).send(error)
     }
 }
 
@@ -72,10 +71,10 @@ exports.updateAutor = async (req, res) => {
 }
 
 exports.getAutoresById = async (req, res) => {
-    try{
-        const Autor = await Autores.findOne({ where: {id_autor: req.params.id }})
+    try {
+        const Autor = await Autores.findOne({ where: { id_autor: req.params.id } })
         return res.status(200).send(Autor)
-    } catch{
+    } catch {
         return res.status(500).send('Internal Server Error')
     }
 }

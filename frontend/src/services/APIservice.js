@@ -45,8 +45,8 @@ export async function getAutoresById(id) {
     return response.data
 }
 
-export async function createAutor(autor){
-    const response = await http.post('/autores', {autor: autor})
+export async function createAutor(autor) {
+    const response = await http.post('/autores', { autor: autor })
     return response.data
 }
 
@@ -56,7 +56,7 @@ export async function deleteAutores(id) {
 }
 
 export async function updateAutores(id, autor) {
-    const response = await http.put(`/autores/${id}`, {autor: autor})
+    const response = await http.put(`/autores/${id}`, { autor: autor })
     return response.data;
 }
 
@@ -79,7 +79,7 @@ export async function deleteLivros(id) {
     return;
 }
 
-export async function updateLivros(id, nome, genero, data_criacao, editora, qtd_disponivel, id_autor){
+export async function updateLivros(id, nome, genero, data_criacao, editora, qtd_disponivel, id_autor) {
     const response = await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
     return;
 }
