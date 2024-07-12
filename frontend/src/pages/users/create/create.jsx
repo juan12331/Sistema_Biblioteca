@@ -70,8 +70,9 @@ const create = () => {
         }
 
         createUser(cpf, nome, email, senha, telefone).then(data => {
+    
 
-            // window.location.href = "/login"
+            Login()
 
         }).catch(err => console.log(err))
     }
@@ -81,10 +82,14 @@ const create = () => {
         span.textContent = message;
     }
 
+    function Login() {
+        window.location.href = "/Login"
+    }
+
 
     return (
         <div className="container">
-            <span className='back' onClick={() => window.history.back()}>
+            <span className='back' onClick={Login}>
                 <ChevronLeftIcon /> <span>Voltar</span>
             </span>
             <div className="register">

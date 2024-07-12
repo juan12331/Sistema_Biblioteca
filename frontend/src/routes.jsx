@@ -14,6 +14,7 @@ import CreateAutores from "./pages/adm/create_autores/create"
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
+import Login from "./pages/users/login/login"
 
 
 
@@ -34,6 +35,7 @@ function MainRoutes() {
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
+      <Route path="/Login" element={<Login />} />
     </Routes>
   );
 }

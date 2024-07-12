@@ -54,6 +54,7 @@ exports.getUsersByCpf = async (req, res) => {
     }
 }
 
+
 exports.createUsuario = async (req, res) => {
     try {
         const verificacao = await Usuarios.findByPk(req.params.cpf);
