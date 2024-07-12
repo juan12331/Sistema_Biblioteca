@@ -13,14 +13,6 @@ const reclamacoes = database.define('reclamacoes', {
     assunto: {
         type: Sequelize.STRING,
     },
-    
-    cpf_usuario: {
-        type: Sequelize.STRING,
-        references: {
-            model: usuarios,
-            key: 'cpf'
-        }
-    },
     reclamacao: {
         type: Sequelize.STRING(500),
     },
