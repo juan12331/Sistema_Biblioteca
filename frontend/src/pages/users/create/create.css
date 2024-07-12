@@ -1,36 +1,111 @@
-.body{
+.container {
     display: flex;
-    justify-content: end;
-    background-color: #fefae0;
+    background-color: #f4f4f4;
 }
 
-.images img{
-    max-height:100vh;
-    border-top-left-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    
+.container .back {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    & svg {
+        font-size: 3em;
+    }
+
+    &:hover svg {
+        transform: translateX(-3px);
+        transition: 0.2s ease-in-out;
+    }
+
+    & span {
+        font-size: 1.2em;
+        text-decoration: underline;
+    }
+
 }
 
-.Aling{
+.container .register {
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    margin-right: 5rem;
-}
-.images {
-    display: flex;
-    
+    padding: 2rem;
+    height: 100vh;
+    width: 50%;
+
+    & .textField {
+        margin: 10px;
+        background-color: white;
+        width: 100%;
+    }
+
+    & button {
+        width: 100%;
+        margin: 0 10px;
+    }
+
+    & .login {
+        color: black;
+    }
+
+    & form .row {
+        display: flex;
+    }
+
+    & .title {
+        margin-left: 10px;
+    }
+
+    & .error {
+        width: 100%;
+        color: red;
+        text-align: center;
+        font-weight: bold;
+    }
 }
 
-.row{
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.container .image {
+    height: 100vh;
+    width: 50%;
+
+    border-radius: 200px 0 0 0px;
+
+    & img {
+        object-fit: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    overflow-y: hidden;
 }
 
-.col{
-    background-color: white;
-    width: 8rem;
-    margin: 1rem;
+@media screen and (max-width: 768px) {
+    .container .image {
+        display: none;
+    }
+
+    .container .register {
+        width: 100%;
+    }
+
+    .container .register form .row {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    .container .register .textField {
+        margin: 5px 0;
+    }
+
+    .container .register button {
+        margin: 5px 0;
+    }
+
+    .container .register .title {
+        font-size: 1.3em;
+        margin-left: 0;
+        margin-bottom: 10px;
+    }
 }

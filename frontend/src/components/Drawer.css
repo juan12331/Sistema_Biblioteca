@@ -1,4 +1,4 @@
-a{
+.drawer a{
     padding: 5px;
     text-decoration: none;
     color: black;
@@ -9,20 +9,20 @@ a{
     align-items: center;
 }
 
-.links a .icon {
+.drawer .links a .icon {
     margin-right: 10px;
 }
 
-.title {
+.drawer .title {
     border-bottom: 1px solid #8f8f8f9f;
 }
 
-.links {
+.drawer .links {
     margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 
-.links a:hover {
+.drawer .links a:hover {
     background-color: #b6b6b6;
 }

@@ -13,6 +13,10 @@ livros.sync();
 reclamacoes.sync();
 avaliacao.sync();
 
+usuarios.hasMany(reclamacoes, {
+    foreignKey: 'cpf_usuario'
+})
+
 
 const app = express();
 
