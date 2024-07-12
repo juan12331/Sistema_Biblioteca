@@ -42,7 +42,7 @@ exports.getAutor = async (req, res) => {
 }
 
 exports.deleteAutor = async (req, res) => {
-    const pegaAutor = Autores.findByPk(req.params.id)
+    const pegaAutor = await Autores.findByPk(req.params.id)
     try {
         if (pegaAutor) {
             console.log('ok')

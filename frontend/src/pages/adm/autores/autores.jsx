@@ -57,13 +57,13 @@ const autores = () => {
 
             <div className="cardWrap">
           {autores.map((autor) => (
-            <div className='card' key='ajsdald'>
+            <div className='card' key={autor.id_autor}>
               <div className="nome">
                 {autor.autor}
               </div>
               <span>Livros: </span> 
               {autor.livros.map((livros) => (
-                <div className="livros"> { livros.nome }</div>
+                <div className="livros" key={livros.nome}> { livros.nome }</div>
               ))
 
               }
