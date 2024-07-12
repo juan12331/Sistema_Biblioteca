@@ -87,8 +87,10 @@ const users = () => {
               <div className="criado">
                 {formatDate(user.createdAt)}
               </div>
+              <div className="button">
               <button value={user.cpf} id='delete' className='button1 delete' onClick={() => deletar(user.cpf)}> Deletar </button>
               <button value={user.cpf} id='edit' className='button1 edit' onClick={() => redirecionarUpdate(user.cpf)}> Editar </button>
+              </div>
             </div>
           ))}
         </div>

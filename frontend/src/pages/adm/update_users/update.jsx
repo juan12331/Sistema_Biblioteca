@@ -126,9 +126,9 @@ const update = () => {
           <div className="rowTop">
 
 
-            <input className='InputText' variant="outlined" type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
+            <input className='InputText' type="text" value={email} onChange={(e) => setEmail(e.target.value)} />
 
-            <input className='InputText' variant="outlined" type="text" value={senha} onChange={(e) => setSenha(e.target.value)} />
+            <input className='InputText' type="text" value={senha} onChange={(e) => setSenha(e.target.value)} />
 
 
           </div>  
