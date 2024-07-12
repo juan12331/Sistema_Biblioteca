@@ -41,45 +41,10 @@ const autores = () => {
 
   return (
     <>
-<<<<<<< HEAD
       <div className="header">
         <Sidebar />
         <div className="text">
           AUTORES
-=======
-            <div className="header">
-                <Sidebar />
-                <div className="text">
-                    AUTORES
-                </div>
-                <button className='button1 delete' onClick={sair} >sair</button>
-
-            </div>
-            <div className="top">
-            <input type="text" className="input" onChange={(e) => { setSearch(e.target.value) }} />
-            <Button variant="contained" color="success"  className='sucess' onClick={getAutor} >Pesquisar</Button>
-                <a href="/Adm/Cadastrar_autor" className='cadastrarLivro' >Cadastrar Autor</a>
-            </div>
-
-            <div className="cardWrap">
-          {autores.map((autor) => (
-            <div className='card' key={autor.id_autor}>
-              <div className="nome">
-                {autor.autor}
-              </div>
-              <span>Livros: </span> 
-              {autor.livros.map((livros) => (
-                <div className="livros" key={livros.nome}> { livros.nome }</div>
-              ))
-
-              }
-                
-              
-               <button value={autor.id_autor} id='delete' className='button1 delete' onClick={() => deletar(autor.id_autor)}> Deletar </button>
-              <button value={autor.id_autor} id='edit' className='button1 edit' onClick={() => redirecionarUpdate(autor.id_autor)}> Editar </button>
-            </div> 
-          ))}
->>>>>>> 44d6ea501206164d8eba40496470b4c1ce91b734
         </div>
         <button className='button1 delete' onClick={sair} >sair</button>
 
