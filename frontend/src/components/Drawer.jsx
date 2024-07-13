@@ -15,11 +15,8 @@ import { useState } from 'react'
 
 const Sidebar = () => {
 
-  const theme = {
-    spacing: 8,
-  }
-
   const [isDrawerOpen, setDrawerOpen] = useState(false)
+  
   return (
     <>
 

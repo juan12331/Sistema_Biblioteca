@@ -16,7 +16,6 @@ const users = () => {
   function getButton() {
     getUsers({ nome: search, email: search, papel: search }).then(data => {
       setUsers(data);
-      
     }).catch(err => console.log("deu erro :(", err))
   }
 
