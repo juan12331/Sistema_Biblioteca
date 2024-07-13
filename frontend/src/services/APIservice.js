@@ -13,8 +13,8 @@ export async function getUsersByCpf(cpf) {
     return response.data;
 }
 
-export async function login(email, senha) {
-    const response = await http.post('/login', { email, senha });
+export async function loginUser(email, senha) {
+    const response = await http.post('/login', { email: email, senha: senha });
     return response.data;
 }
 
