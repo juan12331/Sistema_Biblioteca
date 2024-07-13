@@ -44,9 +44,10 @@ routes.put('/livros/:id', LivrosControllers.updateLivro)
 
 routes.post('/reclamacoes', ReclamacoesControllers.createReclamacoes)
 
-routes.delete('/reclamacoes/:cpf_usuario', ReclamacoesControllers.deleteReclamacoes)
+routes.delete('/reclamacoes/:id', ReclamacoesControllers.deleteReclamacoes)
 
 routes.get('/reclamacoes', ReclamacoesControllers.getAllReclamacoes)
+routes.get('/reclamacoes/:id', ReclamacoesControllers.getReclamacoesById)
 
 //funções das avaliações
 

@@ -11,6 +11,7 @@ import UpdateLivros from "./pages/adm/update_livros/update"
 import Autores from "./pages/adm/autores/autores"
 import UpdateAutor from "./pages/adm/update_autores/updateAutor"
 import CreateAutores from "./pages/adm/create_autores/create"
+import ViewReclamacoes from "./pages/adm/view_reclamacoes/relamacoes"
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
@@ -31,6 +32,7 @@ function MainRoutes() {
       <Route path="/Adm/Autores" element={<Autores />} />
       <Route path="/Adm/Atualizar_autor/:id" element={<UpdateAutor />} />
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores />} />
+      <Route path="/Adm/ViewReclamacoes/:id" element={<ViewReclamacoes />} />
 
 
       {/* User Routes */}

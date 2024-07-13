@@ -11,28 +11,14 @@ exports.createReclamacoes = async (req, res) => {
 
 }
 exports.deleteReclamacoes = async (req, res) => {
-
     try {
-
-        const { cpf_usuario, reclamacao } = req.query || {}
-        if (!cpf_usuario, !reclamacao) {
-
-            return res.status(404).send('Not Found')
+        const encontaReclamacao = await Reclamacoes.findByPk(req.params.id)
+        if (encontaReclamacao) {
+            await encontaReclamacao.destroy();
+            return res.status(200).send('usuario deletado')
         }
-
-        const acharReclamacao = {
-            [Op.and]: [
-                cpf_usuario ? { cpf_usuario: { [Op.like]: `%${cpf_usuario}%` } } : undefined,
-                reclamacao ? { reclamacao: { [Op.like]: `%${reclamacao}%` } } : undefined,
-            ].filter(Boolean)
-        }
-
-        const reclamacoes = await Reclamacoes.findOne({ where: acharReclamacao })
-        await reclamacoes.destroy();
-
-    } catch (err) {
-        console.error(err);
-        return res.status(500).send('Internal Server Error');
+    } catch (error) {
+        return res.status(500).send(error)
     }
 }
 
@@ -40,27 +26,46 @@ exports.getAllReclamacoes = async (req, res) => {
 
     try {
 
-        const { cpf_usuario, reclamacao } = req.query || {};
+        const { cpf_usuario, reclamacao, usuarioCpf, assunto } = req.query || {};
         console.log('chegou aqui')
 
-        if (!cpf_usuario || !reclamacao) {
+        if (!cpf_usuario || !reclamacao || !usuarioCpf || !assunto) {
             const reclamacoes = await Reclamacoes.findAll();
             console.log(reclamacoes)
             return res.send(reclamacoes)
         }
+        //FIX: ordenar por OrderBy
 
         const pesquisa = {
             [Op.or]: [
                 cpf_usuario ? { cpf_usuario: { [Op.like]: `%${cpf_usuario}%` } } : undefined,
                 reclamacao ? { reclamacao: { [Op.like]: `%${reclamacao}%` } } : undefined,
+                usuarioCpf ? { usuarioCpf: { [Op.like]: `%${usuarioCpf}%` } } : undefined,
+                assunto ? { assunto: { [Op.like]: `%${assunto}%` } } : undefined,
             ].filter(Boolean)
         }
 
-        console.log('cpf_usuario')
         const reclamacoes = await Reclamacoes.findAll({ where: pesquisa })
         return res.send(reclamacoes)
     } catch (err) {
         console.error(err)
         return res.status(500).send('Internal Server Error');
     }
+}
+
+exports.getReclamacoesById = async (req, res) => {
+    try{
+        const encontaReclamacao = await Reclamacoes.findByPk(req.params.id)
+        if ( !encontaReclamacao ) {
+            return res.satus(404).send("reclamacao not found")
+        }   
+        return res.send(encontaReclamacao)
+
+    } catch (error) {
+        return res.status(500).send(error)
+    }
+}
+
+exports.AumentarClassificacao = async (req, res) => {
+    //TODO: aumentar a classificacao da reclamacao
 }

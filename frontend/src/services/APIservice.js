@@ -51,7 +51,7 @@ export async function createAutor(autor) {
 }
 
 export async function deleteAutores(id) {
-    const response = await http.delete(`/autores/${id}`)
+    await http.delete(`/autores/${id}`)
     return;
 }
 
@@ -75,13 +75,13 @@ export async function getLivros(params) {
 }
 
 export async function deleteLivros(id) {
-    const response = await http.delete(`/livros/${id}`)
+    await http.delete(`/livros/${id}`)
     return;
 }
 
 export async function updateLivros(id, nome, genero, data_criacao, editora, qtd_disponivel, id_autor) {
-    const response = await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
-    return;
+    await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor })
+    return
 }
 
 export async function getLivrosById(id) {
@@ -89,7 +89,24 @@ export async function getLivrosById(id) {
     return response.data
 }
 
-// export async function getLivrosByAutores(id_autor) {
-//     const response  = await http.get(`/livros/autores/${id_autor}`)
-//     return response.data;
-// }
+// função reclamações
+
+export async function getAllReclamacoes ( params ) {
+    const response = await http.get('/reclamacoes', {params})
+    return response.data;
+}
+
+export async function createReclamacoes ( assunto, reclamacao, usuarioCpf ) {
+    const response = await http.post('/reclamacoes', { assunto: assunto, reclamacao: reclamacao, usuarioCpf: usuarioCpf })
+    return response.data;
+}
+
+export async function deleteReclamacao (id_reclamacao) {
+    await http.delete(`/reclamacoes/${id_reclamacao}`)
+    return;
+}
+
+export async function getReclamacoesById (id_reclamacao) {
+    const response = await http.get(`/reclamacoes/${id_reclamacao}`)
+    return response.data;
+}

@@ -88,7 +88,7 @@ const create = () => {
 
 
     return (
-        <div className="container">
+        <div className="registerContainer">
             <span className='back' onClick={Login}>
                 <ChevronLeftIcon /> <span>Voltar</span>
             </span>

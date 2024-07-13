@@ -1,0 +1,36 @@
+.reclamacoesContainer {
+    background-color: #ffffff; /* Fundo branco */
+    padding: 2rem;
+    padding-top: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+    transition: box-shadow 0.3s ease;
+    margin: 1rem;
+}
+
+.reclamacoesContainer:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada ao passar o mouse */
+}
+
+.cpf_usuario {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.assunto {
+    margin-bottom: 10px;
+}
+
+.reclamacao {
+    font-size: 16px;
+    line-height: 1.6;
+    flex-wrap: wrap;
+    word-wrap: break-word;
+}
+
+.botoes {
+    display: flex;
+    justify-content: center;
+}
