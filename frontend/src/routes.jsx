@@ -16,6 +16,7 @@ import ViewReclamacoes from "./pages/adm/view_reclamacoes/relamacoes"
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
 import Login from "./pages/users/login/login"
+import Homepage from "./pages/users/homepage/homepage"
 
 
 
@@ -38,6 +39,7 @@ function MainRoutes() {
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
       <Route path="/Login" element={<Login />} />
+      <Route path="/Homepage" element={<Homepage />} />
     </Routes>
   );
 }
