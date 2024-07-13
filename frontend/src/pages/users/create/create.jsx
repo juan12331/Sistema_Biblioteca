@@ -117,7 +117,7 @@ const create = () => {
                         <Button variant="contained" color="success" onClick={Criar} >Cadastrar</Button>
                     </div>
                     <div className="row">
-                        <Button className='login' variant="text" onClick={Criar} >Já tenho uma conta</Button>
+                        <Button className='login' variant="text" onClick={Login} >Já tenho uma conta</Button>
                     </div>
                 </form>
             </div>

@@ -6,9 +6,8 @@ exports.login = async (req, res) => {
     try {
         const { email, senha } = req.body;
         const usuario = await Usuarios.findOne({ where: { email, senha } })
-        const encontrarUsuario = await Usuarios.findOne({ where: usuario })
-        if (encontrarUsuario) {
-            return res.send(encontrarUsuario);
+        if (usuario) {
+            return res.send(usuario);
         }
         return res.status(404).send('Usuario not found');
     } catch (error) {
