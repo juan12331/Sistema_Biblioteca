@@ -2,6 +2,7 @@ const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime');
 const autores = require('./autores')
+import { DataTypes } from '@sequelize/core';
 
 const livros = database.define('livros', {
 
@@ -39,6 +40,14 @@ const livros = database.define('livros', {
             model: autores,
             key: 'id_autor'
         }, // referencia o nome da tabela
+    },
+    Imagem: {
+        type: Sequelize.STRING(300),
+        allowNull: false
+    },
+    Descricao: {
+        type: Sequelize.STRING,
+        allowNull: false
     }
 });
 

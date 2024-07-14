@@ -28,6 +28,8 @@ const update = () => {
     const [editora, setEditora] = useState('')
     const [quantidade, setQuantia] = useState('')
     const [autorId, setId] = useState('')
+    const [image, setImage] = useState('')
+    const [descricao, setDescricao] = useState('')
 
     function PegarAutores() {
         getAutores().then(data => {
@@ -56,7 +58,7 @@ const update = () => {
 
     function update () {
 
-        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '') {
+        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || image == '') {
             showError('preencha todos os campos')
             return;
         } if (quantidade < 0) {
@@ -75,7 +77,7 @@ const update = () => {
             showError('insira uma data valida')
             return
         }
-        updateLivros(id, nome, genero, data, editora, quantidade, autorId).then(data => {
+        updateLivros(id, nome, genero, data, editora, quantidade, autorId, image, descricao).then(data => {
             voltar()
         }).catch(err => console.error(err))
 
@@ -117,6 +119,11 @@ const update = () => {
                 <div className="row">
                     <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
                     <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                </div>
+
+                <div className="row">
+                    <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
+                    <input type="Number" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInput' />
                 </div>
                 <div className="row">
                     <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>

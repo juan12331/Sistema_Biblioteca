@@ -21,9 +21,7 @@ const create = () => {
 
     function PegarAutores() {
         getAutores().then(data => {
-            console.log(data)
             setAutores(data)
-            console.log(data);
         })
     }
 
@@ -33,13 +31,15 @@ const create = () => {
     const [editora, setEditora] = useState('')
     const [quantidade, setQuantia] = useState('')
     const [autorId, setId] = useState('')
+    const [image, setImage] = useState('')
+    const [descricao, setDescricao] = useState('')
 
     useEffect(() => {
         PegarAutores()
     }, [])
 
     function Criar() {
-        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '') {
+        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || image == '') {
             showError('preencha todos os campos')
             return;
         } if (quantidade < 0) {
@@ -59,7 +59,7 @@ const create = () => {
             return
         }
 
-        createLivros(nome, genero, data, editora, quantidade, autorId).then(data => {
+        createLivros(nome, genero, data, editora, quantidade, autorId, image, descricao).then(data => {
             voltar()
         }).catch(err => console.log(err))
         voltar()
@@ -105,6 +105,10 @@ const create = () => {
                 <div className="row">
                     <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
                     <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                </div>
+                <div className="row">
+                    <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Url da imagem' className='textInput' />
+                    <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='quantidade' className='textInput' />
                 </div>
                 <div className="row">
                     <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
