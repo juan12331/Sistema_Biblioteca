@@ -2,7 +2,6 @@ const Sequelize = require('sequelize')
 const database = require('../config/sequelize')
 const { default_type } = require('mime');
 const autores = require('./autores')
-import { DataTypes } from '@sequelize/core';
 
 const livros = database.define('livros', {
 
