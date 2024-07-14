@@ -10,12 +10,13 @@ exports.login = async (req, res) => {
         const { email, senha } = req.body;
         const usuario = await Usuarios.findOne({ where: { email, senha } })
         if (usuario.email == email && usuario.senha == senha) {
-            jwt.sign({ usuarioCpf: usuario.cpf }) 
-            return res.send(usuario.papel);
+            const token = jwt.sign({ usuarioCpf: usuario.cpf }, SECRET, { expiresIn: 1800 })
+            return res.json({ papel: usuario.papel, auth: true, token })
+            // FIX: salvar o token
         }
         return res.status(404).send('Usuario not found');
     } catch (error) {
-        return res.status(500).send('Internal Server error')
+        return res.status(500).send(error)
     }
 }
 

@@ -18,6 +18,7 @@ import Create from "./pages/users/create/create"
 import Login from "./pages/users/login/login"
 import Homepage from "./pages/users/homepage/homepage"
 
+// FIX: adicionar obrigatoriadoredade de token nas rotas
 
 
 function MainRoutes() {

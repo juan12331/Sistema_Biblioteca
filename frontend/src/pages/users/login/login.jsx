@@ -21,9 +21,9 @@ const login = () => {
 
 
     loginUser(email, senha).then(data => {
-      
 
-      if (data === 'user') {
+      
+      if (data.papel === 'user') {
         window.location.href = '/Homepage'
         return;
       }
