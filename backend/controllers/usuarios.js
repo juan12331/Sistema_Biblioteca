@@ -1,13 +1,17 @@
 
 const { Op } = require('sequelize');
 const Usuarios = require('../models/usuarios');
+const jwt = require('jsonwebtoken')
+require('dotenv').config();
+const SECRET = process.env.SECRET;
 
 exports.login = async (req, res) => {
     try {
         const { email, senha } = req.body;
         const usuario = await Usuarios.findOne({ where: { email, senha } })
-        if (usuario) {
-            return res.send(usuario);
+        if (usuario.email == email && usuario.senha == senha) {
+            jwt.sign({ usuarioCpf: usuario.cpf }) 
+            return res.send(usuario.papel);
         }
         return res.status(404).send('Usuario not found');
     } catch (error) {
