@@ -31,7 +31,7 @@ const create = () => {
     const [editora, setEditora] = useState('')
     const [quantidade, setQuantia] = useState('')
     const [autorId, setId] = useState('')
-    const [image, setImage] = useState('')
+    const [imagem, setImage] = useState('')
     const [descricao, setDescricao] = useState('')
 
     useEffect(() => {
@@ -39,7 +39,11 @@ const create = () => {
     }, [])
 
     function Criar() {
-        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || image == '') {
+
+        console.log(imagem)
+        console.log(descricao)
+        
+        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || imagem == '') {
             showError('preencha todos os campos')
             return;
         } if (quantidade < 0) {
@@ -57,9 +61,12 @@ const create = () => {
         } if (!rageLetras.test(data)) {
             showError('insira uma data valida')
             return
+        } if (descricao.length >= 499) {
+            showError('Descrição muito longa')
+            return
         }
 
-        createLivros(nome, genero, data, editora, quantidade, autorId, image, descricao).then(data => {
+        createLivros(nome, genero, data, editora, quantidade, autorId, imagem, descricao).then(data => {
             voltar()
         }).catch(err => console.log(err))
         voltar()
@@ -107,8 +114,8 @@ const create = () => {
                     <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
                 </div>
                 <div className="row">
-                    <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Url da imagem' className='textInput' />
-                    <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='quantidade' className='textInput' />
+                    <input type="text" value={imagem} onChange={(e) => setImage(e.target.value)} placeholder='Url da imagem' className='textInput' />
+                    <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='descricao' className='textInput' />
                 </div>
                 <div className="row">
                     <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>

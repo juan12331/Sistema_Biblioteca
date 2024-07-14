@@ -28,7 +28,7 @@ const update = () => {
     const [editora, setEditora] = useState('')
     const [quantidade, setQuantia] = useState('')
     const [autorId, setId] = useState('')
-    const [image, setImage] = useState('')
+    const [imagem, setImage] = useState('')
     const [descricao, setDescricao] = useState('')
 
     function PegarAutores() {
@@ -45,6 +45,8 @@ const update = () => {
           setQuantia(data.qtd_disponivel)
           setDate(data.data_criacao)
           setId(data.id_autor)
+          setImage(data.imagem)
+          setDescricao(data.descricao)
     
           
                   
@@ -58,7 +60,10 @@ const update = () => {
 
     function update () {
 
-        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || image == '') {
+        console.log(imagem)
+        console.log(descricao)
+
+        if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || imagem == '') {
             showError('preencha todos os campos')
             return;
         } if (quantidade < 0) {
@@ -76,8 +81,13 @@ const update = () => {
         } if (!rageLetras.test(data)) {
             showError('insira uma data valida')
             return
+        } if (descricao.length >= 499) {
+            showError('Descrição muito longa')
+            return
         }
-        updateLivros(id, nome, genero, data, editora, quantidade, autorId, image, descricao).then(data => {
+        console.log(imagem)
+        console.log(descricao)
+        updateLivros(id, nome, genero, data, editora, quantidade, autorId, imagem, descricao).then(data => {
             voltar()
         }).catch(err => console.error(err))
 
@@ -122,7 +132,7 @@ const update = () => {
                 </div>
 
                 <div className="row">
-                    <input type="text" value={image} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
+                    <input type="text" value={imagem} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
                     <input type="Number" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInput' />
                 </div>
                 <div className="row">

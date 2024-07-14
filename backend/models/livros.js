@@ -40,12 +40,12 @@ const livros = database.define('livros', {
             key: 'id_autor'
         }, // referencia o nome da tabela
     },
-    Imagem: {
+    imagem: {
         type: Sequelize.STRING(300),
         allowNull: false
     },
-    Descricao: {
-        type: Sequelize.STRING,
+    descricao: {
+        type: Sequelize.STRING(500),
         allowNull: false
     }
 });

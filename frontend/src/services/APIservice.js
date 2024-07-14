@@ -63,8 +63,8 @@ export async function updateAutores(id, autor) {
 //funções dos livros
 
 
-export async function createLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor, image, descricao) {
-    const response = await http.post('/livros', { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor, image: image, descricao: descricao })
+export async function createLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor, imagem, descricao) {
+    const response = await http.post('/livros', { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor, imagem: imagem, descricao: descricao })
     return response.data;
 }
 
@@ -79,8 +79,8 @@ export async function deleteLivros(id) {
     return;
 }
 
-export async function updateLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor, image, descricao) {
-    await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor, image: image, descricao: descricao  })
+export async function updateLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor, imagem, descricao) {
+    await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor, imagem: imagem, descricao: descricao  })
     return
 }
 
