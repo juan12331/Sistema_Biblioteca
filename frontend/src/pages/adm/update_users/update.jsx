@@ -92,8 +92,9 @@ const update = () => {
   }, [])
 
   function sair() {
+    localStorage.clear();
     window.location.href = "/Cadastro"
-  }
+}
 
   function voltar() {
     window.location.href = '/Adm/Users'

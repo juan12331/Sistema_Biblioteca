@@ -5,6 +5,7 @@ import Sidebar from '../../../components/Drawer'
 
 const emprestimos_livros = () => {
   function sair() {
+    localStorage.clear();
     window.location.href = "/Cadastro"
 }
 

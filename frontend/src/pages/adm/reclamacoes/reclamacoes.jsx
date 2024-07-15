@@ -23,8 +23,9 @@ const reclamacoes = () => {
   }, [])
 
   function sair() {
+    localStorage.clear();
     window.location.href = "/Cadastro"
-  }
+}
 
   function view(id_reclamacoes) {
     window.location.href = `/Adm/ViewReclamacoes/${id_reclamacoes}`

@@ -33,6 +33,7 @@ const relamacoes = () => {
     }, [])
 
     function sair() {
+        localStorage.clear();
         window.location.href = "/Cadastro"
     }
 

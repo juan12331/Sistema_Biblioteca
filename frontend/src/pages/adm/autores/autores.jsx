@@ -13,6 +13,7 @@ const autores = () => {
   const [autores, setAutores] = useState([])
 
   function sair() {
+    localStorage.clear();
     window.location.href = "/Cadastro"
   }
 

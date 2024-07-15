@@ -38,7 +38,8 @@ const updateAutor = () => {
 
 
 function sair() {
-    window.location.href = "/Cadastro"
+  localStorage.clear();
+  window.location.href = "/Cadastro"
 }
 
   const showError = (message) => {

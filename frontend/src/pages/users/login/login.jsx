@@ -24,7 +24,7 @@ const login = () => {
 
     loginUser(email, senha).then(data => {
      console.log(data.user.cpf)
-     localStorage.setItem("cpf", "23zdsdadsa");
+     localStorage.setItem("cpf", data.user.cpf);
     // // localStorage.clear()
 
       
