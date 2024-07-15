@@ -1,10 +1,20 @@
 import React from 'react'
 import Navbar from '../../../components/Navbar'
-import { useState, usaEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 const create = () => {
+  let cpf = localStorage.getItem('cpf')
 
-  
+  const verificar = () => {
+    if (cpf == null || cpf == undefined) {
+      window.location.href = '/login'
+    }
+  }
+
+  useEffect(() => {
+    verificar()
+  }, [])
+
   return (
     <>
       <Navbar/>
