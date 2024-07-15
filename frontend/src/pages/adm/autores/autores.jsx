@@ -9,6 +9,14 @@ import { getAutores, deleteAutores } from '../../../services/APIservice';
 
 const autores = () => {
 
+  let cpf = localStorage.getItem('cpf')
+
+  function verificarAutenticacao() {
+    if (cpf == null || cpf == undefined) {
+      window.location.href = ""
+    }
+  }
+
   const [search, setSearch] = useState([])
   const [autores, setAutores] = useState([])
 
