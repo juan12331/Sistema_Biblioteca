@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../../../components/Drawer';
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Button from '@mui/material/Button';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
@@ -24,6 +24,26 @@ const create = () => {
     function voltar() {
         window.location.href = '/Adm/Autores'
     }
+
+    let cpf = localStorage.getItem('cpf')
+
+    function verificar123 () {
+        if (cpf == null || cpf == undefined) {
+          window.location.href = '/login'
+        }
+        getUsersByCpf(cpf).then(data => {
+          if (data.papel == 'user'){
+            window.location.href = "/Usuarios/LivrosUsers"
+            return;
+          } if (data.papel == 'adm') {
+            return
+          }
+        })
+      }
+
+      useEffect(() =>{
+        verificar123()
+      }, [])
 
 
     function sair() {

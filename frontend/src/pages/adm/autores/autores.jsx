@@ -33,7 +33,24 @@ const autores = () => {
 
   }
 
+  let cpfVerificar = localStorage.getItem('cpf')
+
+  function verificar123() {
+    if (cpfVerificar == null || cpfVerificar == undefined) {
+      window.location.href = '/login'
+    }
+    getUsersByCpf(cpfVerificar).then(data => {
+      if (data.papel == 'user'){
+        window.location.href = "/Usuarios/LivrosUsers"
+        return;
+      } if (data.papel == 'adm') {
+        return
+      }
+    })
+  }
+
   useEffect(() => {
+    verificar123()
     getAutor()
   }, [])
 

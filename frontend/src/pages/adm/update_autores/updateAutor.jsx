@@ -46,8 +46,25 @@ function sair() {
     const span = document.getElementById('span');
     span.textContent = message;
 }
+let cpf = localStorage.getItem('cpf')
+
+
+function verificar123 () {
+  if (cpf == null || cpf == undefined) {
+    window.location.href = '/login'
+  }
+  getUsersByCpf(cpf).then(data => {
+    if (data.papel == 'user'){
+      window.location.href = "/Usuarios/LivrosUsers"
+      return;
+    } if (data.papel == 'adm') {
+      return
+    }
+  })
+}
 
 useEffect(() => {
+  verificar123()
   preencher(id)
 }, [])
 

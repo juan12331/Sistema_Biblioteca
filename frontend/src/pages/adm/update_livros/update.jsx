@@ -52,6 +52,7 @@ const update = () => {
       }
 
     useEffect(() => {
+        verificar123()
         PegarAutores()
         preencher(id)
     }, [])
@@ -99,6 +100,21 @@ const update = () => {
     function voltar() {
         window.location.href = '/Adm/Livros'
     }
+    let cpf = localStorage.getItem('cpf')
+
+    function verificar123 () {
+        if (cpf == null || cpf == undefined) {
+          window.location.href = '/login'
+        }
+        getUsersByCpf(cpf).then(data => {
+          if (data.papel == 'user'){
+            window.location.href = "/Usuarios/LivrosUsers"
+            return;
+          } if (data.papel == 'adm') {
+            return
+          }
+        })
+      }
 
     function sair() {
         localStorage.clear();

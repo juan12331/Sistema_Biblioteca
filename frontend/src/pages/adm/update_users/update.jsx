@@ -13,6 +13,9 @@ import SendIcon from '@mui/icons-material/Send';
 
 const update = () => {
 
+  let cpfVerificar = localStorage.getItem('cpf')
+
+
   const rageEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   const rageSenha = /^(?=.*[A-Z])(?=.*\d).+$/;
   const rageCaracter = /^.{8,}$/;
@@ -87,7 +90,22 @@ const update = () => {
     Voltar()
   }
 
+  function verificar123 () {
+    if (cpfVerificar == null || cpfVerificar == undefined) {
+      window.location.href = '/login'
+    }
+    getUsersByCpf(cpfVerificar).then(data => {
+      if (data.papel == 'user'){
+        window.location.href = "/Usuarios/LivrosUsers"
+        return;
+      } if (data.papel == 'adm') {
+        return;
+      }
+    })
+  }
+
   useEffect(() => {
+    verificar123()
     preencher(cpf)
   }, [])
 
