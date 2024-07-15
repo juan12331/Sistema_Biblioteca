@@ -29,7 +29,7 @@ exports.getLivros = async (req, res) => {
         ].filter(Boolean)
     }
 
-    const livros = await Livros.findAll({ where: pesquisa, include: autores })
+    const livros = await Livros.findAll({ where: pesquisa, include: autores, limit: 20 })
 
 
 

@@ -20,11 +20,20 @@ const login = () => {
     }
 
 
-    loginUser(email, senha).then(data => {
 
-      if (data.papel === 'user') {
-        console.log(data)
-        window.location.href = '/Homepage'
+
+    loginUser(email, senha).then(data => {
+     console.log(data.user.cpf)
+     localStorage.setItem("cpf", "23zdsdadsa");
+    // // localStorage.clear()
+
+      
+     console.log(localStorage.getItem("token"));
+
+
+      if (data.user.papel === 'user') {
+        
+        // window.location.href = ``
         return;
       }
       window.location.href = '/Adm/Users'
@@ -38,7 +47,8 @@ const login = () => {
   }
 
   function cadastro() {
-    window.location.href = '/cadastro'
+    
+    // window.location.href = '/cadastro'
   }
 
 

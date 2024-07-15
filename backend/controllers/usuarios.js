@@ -1,26 +1,30 @@
-
 const { Op } = require('sequelize');
 const Usuarios = require('../models/usuarios');
 const jwt = require('jsonwebtoken')
 require('dotenv').config();
 const SECRET = process.env.SECRET;
 
+
 exports.login = async (req, res) => {
     try {
         const { email, senha } = req.body;
         const usuario = await Usuarios.findOne({ where: { email, senha } })
         if (usuario.email == email && usuario.senha == senha) {
-            const token = jwt.sign({ usuarioCpf: usuario.cpf }, SECRET, { expiresIn: 1800 })
+            // const token = jwt.sign({ usuarioCpf: usuario.cpf }, SECRET, { expiresIn: 1800 })
             
-            res.cookie("token", token, {
-                maxAge: 86400000,
-                httpOnly: true,
-                secure: false
-            })
+            //  res.cookie("token", token, {
+            //      maxAge: 86400000,
+            //      httpOnly: true,
+            //      secure: false
+            //  })
 
+            // console.log(req.cookies);
             
-            return res.json({ papel: usuario.papel, auth: true, token })
+            // return res.send({ papel: usuario.papel, auth: true, token, })
             // FIX: salvar o token
+            // FIX
+
+            return res.send({ user: usuario })
         }
         return res.status(404).send('Usuario not found');
     } catch (error) {
@@ -46,7 +50,7 @@ exports.getUsers = async (req, res) => {
             ].filter(Boolean)
         }
 
-        const usuarios = await Usuarios.findAll({ where: pesquisa })
+        const usuarios = await Usuarios.findAll({ where: pesquisa, limit: 20 })
         return res.send(usuarios)
 
     } catch (error) {

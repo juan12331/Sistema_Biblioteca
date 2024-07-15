@@ -17,7 +17,6 @@ import EmprestimosLivros from "./pages/adm/livros_emprestados/emprestimos_livros
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
 import Login from "./pages/users/login/login"
-import Homepage from "./pages/users/homepage/homepage"
 import LivrosUsers from "./pages/users/livros/livros"
 import LivrosView from "./pages/users/livros/livros"
 import Profile from "./pages/users/profile/profile"
@@ -47,8 +46,7 @@ function MainRoutes() {
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
       <Route path="/Login" element={<Login />} />
-      <Route path="/Homepage" element={<Homepage />} />
-      <Route path="/Usuarios/LivrosUsers/:" element={<LivrosUsers />} />
+      <Route path="/Usuarios/LivrosUsers" element={<LivrosUsers />} />
       <Route path="/Usuarios/LivrosView/:id" element={<LivrosView />} />
       <Route path="/Usuarios/Profile/:cpf" element={<Profile />} />
       <Route path="/Usuarios/ReclamacoesUsers" element={<ReclamacoesUsers />} />

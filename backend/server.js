@@ -21,7 +21,7 @@ usuarios.hasMany(reclamacoes, {
 
 const app = express();
 
-app.use(cookieParser())
+app.use(cookieParser());
 app.use(cors());
 app.use(express.json());
 app.use(routes);

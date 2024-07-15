@@ -45,7 +45,7 @@ exports.getAllReclamacoes = async (req, res) => {
             ].filter(Boolean)
         }
 
-        const reclamacoes = await Reclamacoes.findAll({ where: pesquisa })
+        const reclamacoes = await Reclamacoes.findAll({ where: pesquisa, limit: 20 })
         return res.send(reclamacoes)
     } catch (err) {
         console.error(err)

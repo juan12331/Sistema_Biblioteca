@@ -31,7 +31,7 @@ exports.getAutor = async (req, res) => {
         const autores = await Autores.findAll({
             where: pesquisa, include: [{
                 model: Livros
-            }]
+            }], limit: 50
         })
         return res.send(autores)
 
