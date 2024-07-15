@@ -30,7 +30,7 @@ function NavBar() {
   };
  
   const Profile = () => {
-    
+    window.location.href = '/'
   }
 
   return (
