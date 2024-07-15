@@ -12,11 +12,18 @@ import Autores from "./pages/adm/autores/autores"
 import UpdateAutor from "./pages/adm/update_autores/updateAutor"
 import CreateAutores from "./pages/adm/create_autores/create"
 import ViewReclamacoes from "./pages/adm/view_reclamacoes/relamacoes"
+import EmprestimosLivros from "./pages/adm/livros_emprestados/emprestimos_livros"
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
 import Login from "./pages/users/login/login"
 import Homepage from "./pages/users/homepage/homepage"
+import LivrosUsers from "./pages/users/livros/livros"
+import LivrosView from "./pages/users/livros/livros"
+import Profile from "./pages/users/profile/profile"
+import ReclamacoesUsers from "./pages/users/reclamacoes/reclamacoes"
+import CreateReclamacoes from "./pages/users/create_reclamacoes/create"
+
 
 // FIX: adicionar obrigatoriadoredade de token nas rotas
 
@@ -35,12 +42,17 @@ function MainRoutes() {
       <Route path="/Adm/Atualizar_autor/:id" element={<UpdateAutor />} />
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores />} />
       <Route path="/Adm/ViewReclamacoes/:id" element={<ViewReclamacoes />} />
-
+      <Route path="/Adm/EmprestimosLivros" element={<EmprestimosLivros />} />
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Homepage" element={<Homepage />} />
+      <Route path="/Usuarios/LivrosUsers" element={<LivrosUsers />} />
+      <Route path="/Usuarios/LivrosView/:id" element={<LivrosView />} />
+      <Route path="/Usuarios/Profile/:cpf" element={<Profile />} />
+      <Route path="/Usuarios/ReclamacoesUsers" element={<ReclamacoesUsers />} />
+      <Route path="/Usuarios/CreateReclamacoes/:id" element={<CreateReclamacoes />} />
     </Routes>
   );
 }
