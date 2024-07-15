@@ -11,6 +11,14 @@ exports.login = async (req, res) => {
         const usuario = await Usuarios.findOne({ where: { email, senha } })
         if (usuario.email == email && usuario.senha == senha) {
             const token = jwt.sign({ usuarioCpf: usuario.cpf }, SECRET, { expiresIn: 1800 })
+            
+            res.cookie("token", token, {
+                maxAge: 86400000,
+                httpOnly: true,
+                secure: false
+            })
+
+            
             return res.json({ papel: usuario.papel, auth: true, token })
             // FIX: salvar o token
         }

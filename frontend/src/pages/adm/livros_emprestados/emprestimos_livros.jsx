@@ -1,8 +1,23 @@
 import React from 'react'
+import Button from '@mui/material/Button';
+import Sidebar from '../../../components/Drawer'
+
 
 const emprestimos_livros = () => {
+  function sair() {
+    window.location.href = "/Cadastro"
+}
+
   return (
-    <div>emprestimos_livros</div>
+    <>
+    <div className="header">
+            <Sidebar />
+            <div className="text">
+                Emprestimos de Livros
+            </div>
+            <button className='button1 delete' onClick={sair} >sair</button>
+            </div>
+    </>
   )
 }
 

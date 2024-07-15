@@ -48,7 +48,7 @@ function MainRoutes() {
       <Route path="/Cadastro" element={<Create />} />
       <Route path="/Login" element={<Login />} />
       <Route path="/Homepage" element={<Homepage />} />
-      <Route path="/Usuarios/LivrosUsers" element={<LivrosUsers />} />
+      <Route path="/Usuarios/LivrosUsers/:" element={<LivrosUsers />} />
       <Route path="/Usuarios/LivrosView/:id" element={<LivrosView />} />
       <Route path="/Usuarios/Profile/:cpf" element={<Profile />} />
       <Route path="/Usuarios/ReclamacoesUsers" element={<ReclamacoesUsers />} />

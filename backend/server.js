@@ -6,6 +6,7 @@ const livros = require('./models/livros');
 const autores = require('./models/autores');
 const reclamacoes = require('./models/reclamacoes')
 const avaliacao = require('./models/avaliacao')
+const cookieParser = require('cookie-parser')
 
 usuarios.sync();
 autores.sync();
@@ -20,6 +21,7 @@ usuarios.hasMany(reclamacoes, {
 
 const app = express();
 
+app.use(cookieParser())
 app.use(cors());
 app.use(express.json());
 app.use(routes);
