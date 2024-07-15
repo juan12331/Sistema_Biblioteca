@@ -1,13 +1,13 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { loginUser } from '../../../services/APIservice'
 import Button from '@mui/material/Button';
 import Biblioteca from '../../../image/Biblioteca-login.jpg'
 import { TextField } from "@mui/material";
 import './login.css'
-
+import { getUsersByCpf } from '../../../services/APIservice';
 const login = () => {
 
-
+  let cpf = localStorage.getItem('cpf')
 
   const [email, setEmail] = useState('')
   const [senha, setSenha] = useState('')
@@ -47,9 +47,26 @@ const login = () => {
   }
 
   function cadastro() {
-    
-    // window.location.href = '/cadastro'
+   window.location.href = '/cadastro'
   }
+
+  function verificar () {
+    if (cpf == null || cpf == undefined) {
+      return;
+    }
+    getUsersByCpf(cpf).then(data => {
+      if (data.papel == 'user'){
+        window.location.href = "/Usuarios/LivrosUsers"
+        return;
+      } if (data.papel == 'adm') {
+        window.location.href = "/Adm/Users"
+      }
+    })
+  }
+
+  useEffect(() => {
+    verificar()
+  }, [])
 
 
   return (
