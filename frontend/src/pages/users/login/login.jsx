@@ -28,16 +28,16 @@ const login = () => {
     // // localStorage.clear()
 
       
-     console.log(localStorage.getItem("token"));
+     console.log(localStorage.getItem("cpf"));
 
 
       if (data.user.papel === 'user') {
         
-        // window.location.href = ``
+        window.location.href = ''
         return;
-      }
+      } else if ( data.user.papel === 'adm') {
       window.location.href = '/Adm/Users'
-
+    }
     }).catch(err => console.log(err))
   }
 

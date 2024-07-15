@@ -42,7 +42,7 @@ const users = () => {
 
   function sair() {
     localStorage.clear();
-    window.location.href = "/Cadastro"
+    window.location.href = "/Login"
 }
 
   return (

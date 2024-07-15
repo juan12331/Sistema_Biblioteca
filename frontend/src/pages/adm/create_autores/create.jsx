@@ -28,7 +28,7 @@ const create = () => {
 
     function sair() {
         localStorage.clear();
-        window.location.href = "/Cadastro"
+        window.location.href = "/Login"
     }
 
     const showError = (message) => {

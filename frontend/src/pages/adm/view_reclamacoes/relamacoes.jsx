@@ -34,7 +34,7 @@ const relamacoes = () => {
 
     function sair() {
         localStorage.clear();
-        window.location.href = "/Cadastro"
+        window.location.href = "/Login"
     }
 
     async function deletar () {

@@ -14,7 +14,7 @@ const autores = () => {
 
   function sair() {
     localStorage.clear();
-    window.location.href = "/Cadastro"
+    window.location.href = "/Login"
   }
 
   function getAutor() {
