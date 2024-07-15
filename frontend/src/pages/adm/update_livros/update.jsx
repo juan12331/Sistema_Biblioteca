@@ -47,9 +47,7 @@ const update = () => {
           setId(data.id_autor)
           setImage(data.imagem)
           setDescricao(data.descricao)
-    
           
-                  
         }).catch(err => console.log(err))
       }
 

@@ -20,13 +20,6 @@ const livros = () => {
         
     }
 
-    const formatDate = (date) => {
-    const formattedDate = new Date(date);
-    const day = formattedDate.getDate().toString().padStart(2, '0');
-    const month = (formattedDate.getMonth() + 1).toString().padStart(2, '0');
-    const year = formattedDate.getFullYear().toString();
-    return `Publicado: ${day}/${month}/${year}`;
-  }
     useEffect(() => {
         getBooks()
       }, [])
@@ -79,7 +72,7 @@ const livros = () => {
               </div>
 
               <div className="data_criacao">
-                {formatDate(livro.data_criacao)}
+                Ano: {livro.data_criacao}
               </div>
                <button value={livro.id_livro} id='delete' className='button1 delete' onClick={() => deletar(livro.id_livro)}> Deletar </button>
               <button value={livro.id_livro} id='edit' className='button1 edit' onClick={() => editar(livro.id_livro)}> Editar </button>
