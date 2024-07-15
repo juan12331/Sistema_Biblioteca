@@ -11,15 +11,37 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import AdbIcon from '@mui/icons-material/ClassTwoTone';
 import './Navbar.css'
 
-const pages = ['Products', 'Pricing', 'Blog'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ['Livros', 'Reclamações'];
+const settings = ['Profile', 'Logout'];
 
 function NavBar() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
   const [anchorElUser, setAnchorElUser] = React.useState(null);
+  let cpf = localStorage.getItem('cpf')
+
+  const redirect = (settings) => {
+    if (settings == 'Profile') {
+       window.location.href = `/Usuarios/Profile/${cpf}`
+
+    } if (settings == 'Logout') {
+      localStorage.clear();
+      window.location.href = '/login'
+    }
+    console.error('clicou no nada')
+ }
+
+ const redirecionar = (page) => {
+  if (page == 'Livros') {
+    window.location.href = '/Usuarios/LivrosUsers'
+
+ } if (page == 'Reclamações') {
+   window.location.href = '/Usuarios/ReclamacoesUsers'
+ }
+ console.error('clicou no nada')
+ }
 
   const handleOpenNavMenu = (event) => {
     setAnchorElNav(event.currentTarget);
@@ -28,8 +50,14 @@ function NavBar() {
     setAnchorElUser(event.currentTarget);
   };
 
-  const handleCloseNavMenu = () => {
+  const handleCloseNavMenu = (page) => {
     setAnchorElNav(null);
+    if (page == 'Livros') {
+      window.location.href = '/Usuarios/LivrosUsers'
+  
+   } if (page == 'Reclamações') {
+     window.location.href = '/Usuarios/ReclamacoesUsers'
+   }
   };
 
   const handleCloseUserMenu = () => {
@@ -45,18 +73,17 @@ function NavBar() {
             variant="h6"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Biblioteca Demais
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -90,7 +117,7 @@ function NavBar() {
             >
               {pages.map((page) => (
                 <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                  <Typography textAlign="center" onClick={() => redirecionar(page)}>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -100,27 +127,22 @@ function NavBar() {
             variant="h5"
             noWrap
             component="a"
-            href="#app-bar-with-responsive-menu"
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
               fontFamily: 'monospace',
               fontWeight: 700,
-              letterSpacing: '.3rem',
+              letterSpacing: '.1rem',
               color: 'inherit',
               textDecoration: 'none',
             }}
           >
-            LOGO
+            Biblioteca Demais
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={handleCloseNavMenu}
-                sx={{ my: 2, color: 'white', display: 'block' }}
-              >
+              <Button key={page} onClick={() => handleCloseNavMenu(page)} sx={{ my: 2, color: 'white', display: 'block' }}>
                 {page}
               </Button>
             ))}
@@ -150,7 +172,7 @@ function NavBar() {
             >
               {settings.map((setting) => (
                 <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+                  <Typography textAlign="center" onClick={() => redirect(setting)}>{setting}</Typography>
                 </MenuItem>
               ))}
             </Menu>

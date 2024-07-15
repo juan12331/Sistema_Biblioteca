@@ -33,7 +33,7 @@ const login = () => {
 
       if (data.user.papel === 'user') {
         
-        window.location.href = ''
+        window.location.href = '/Usuarios/LivrosUsers'
         return;
       } else if ( data.user.papel === 'adm') {
       window.location.href = '/Adm/Users'
