@@ -24,7 +24,8 @@ const login = () => {
 
       
       if (data.papel === 'user') {
-        window.location.href = '/Homepage'
+        console.log(data)
+        // window.location.href = '/Homepage'
         return;
       }
       window.location.href = '/Adm/Users'

@@ -1,5 +1,3 @@
-// import React, { useEffect, useState } from 'react';
-// import {getUsers, deleteUser} from '../../../services/APIservice'
 import './users.css'
 import Sidebar from '../../../components/Drawer'
 import Button from '@mui/material/Button';
@@ -14,7 +12,7 @@ const users = () => {
   const [users, setUsers] = useState([])
 
   function getButton() {
-    getUsers({ nome: search, email: search, papel: search }).then(data => {
+    getUsers({ nome: search, email: search, cpf: search }).then(data => {
       setUsers(data);
     }).catch(err => console.log("deu erro :(", err))
   }

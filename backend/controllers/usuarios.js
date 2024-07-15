@@ -22,9 +22,9 @@ exports.login = async (req, res) => {
 
 exports.getUsers = async (req, res) => {
     try {
-        const { nome, email } = req.query || {};
+        const { nome, email, cpf } = req.query || {};
 
-        if (!nome && !email) {
+        if (!nome && !email && !cpf) {
             const usuarios = await Usuarios.findAll();
             return res.send(usuarios)
         }
@@ -34,6 +34,7 @@ exports.getUsers = async (req, res) => {
             [Op.or]: [
                 nome ? { nome: { [Op.like]: `%${nome}%` } } : undefined,
                 email ? { email: { [Op.like]: `%${email}%` } } : undefined,
+                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined,
             ].filter(Boolean)
         }
 
