@@ -8,6 +8,10 @@
     margin: 1rem;
 }
 
+body{
+    background-color: #b6ad90;
+  }
+
 .reclamacoesContainer:hover {
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Sombra mais pronunciada ao passar o mouse */
 }

@@ -7,6 +7,7 @@ import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
 import { updateAutores, getAutoresById } from '../../../services/APIservice';
 import { getUsersByCpf } from '../../../services/APIservice'
+import './updateAutor.css'
 
 const updateAutor = () => {
 

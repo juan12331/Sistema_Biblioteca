@@ -4,6 +4,9 @@
   font-weight: bold;
 }
 
+body{
+  background-color: #b6ad90;
+}
 
 .InputText {
 align-items: center;

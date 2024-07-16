@@ -12,6 +12,7 @@ import { getUsersByCpf } from '../../../services/APIservice'
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
+import './update.css'
 
 
 const update = () => {

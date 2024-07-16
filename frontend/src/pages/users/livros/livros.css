@@ -1,8 +1,9 @@
-.cardWrap {
+.cardwrap {
     margin: 2rem 8rem;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 20px;
+    padding: 20px 0;
 
     & .bookCard {
         cursor: pointer;
@@ -44,8 +45,13 @@
     }
 }
 
-body {
+.bod {
     background-color: #202124;
+    min-height: max-content;
+}
+
+html {
+    height: 100%
 }
 
 .searchBooks {

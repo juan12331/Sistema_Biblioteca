@@ -5,18 +5,12 @@ import Button from '@mui/material/Button';
 import { getUsersByCpf } from '../../../services/APIservice'
 
 import { getAutores, deleteAutores } from '../../../services/APIservice';
+import './autores.css'
 
 
 const autores = () => {
 
   let cpf = localStorage.getItem('cpf')
-
-  function verificarAutenticacao() {
-    if (cpf == null || cpf == undefined) {
-      window.location.href = ""
-    }
-  }
-
   const [search, setSearch] = useState([])
   const [autores, setAutores] = useState([])
 

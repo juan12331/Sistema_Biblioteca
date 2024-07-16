@@ -57,14 +57,14 @@ const livros = () => {
 
 
   return (
-    <>
+    <div className="bod">
       <Navbar />
 
       <div className="searchBooks">
         <input type="text" placeholder="Pesquisar" onChange={searchBooks} />
       </div>
 
-      <div className="cardWrap" onMouseLeave={() => setHoveredIndex(null)}>
+      <div className="cardwrap" onMouseLeave={() => setHoveredIndex(null)}>
         {books.map((book, index) => (
           <div key={book.id_livro}
             className={`bookCard ${hoveredIndex !== null && hoveredIndex !== index ? 'dimmed' : ''}`}
@@ -89,7 +89,7 @@ const livros = () => {
         ))}
       </div>
 
-    </>
+      </div>
   )
 }
 
