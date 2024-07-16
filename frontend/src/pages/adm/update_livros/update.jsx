@@ -38,19 +38,19 @@ const update = () => {
         })
     }
 
-    function preencher(id){
+    function preencher(id) {
         getLivrosById(id).then(data => {
-          setName(data.nome)
-          setGenero(data.genero)
-          setEditora(data.editora)
-          setQuantia(data.qtd_disponivel)
-          setDate(data.data_criacao)
-          setId(data.id_autor)
-          setImage(data.imagem)
-          setDescricao(data.descricao)
-          
+            setName(data.nome)
+            setGenero(data.genero)
+            setEditora(data.editora)
+            setQuantia(data.qtd_disponivel)
+            setDate(data.data_criacao)
+            setId(data.id_autor)
+            setImage(data.imagem)
+            setDescricao(data.descricao)
+
         }).catch(err => console.log(err))
-      }
+    }
 
     useEffect(() => {
         verificar123()
@@ -58,10 +58,8 @@ const update = () => {
         preencher(id)
     }, [])
 
-    function update () {
-
-        console.log(imagem)
-        console.log(descricao)
+    function update() {
+        console.log(id)
 
         if (nome == '' || genero == '' || data == '' || quantidade == '' || autorId == '' || descricao == '' || imagem == '') {
             showError('preencha todos os campos')
@@ -75,7 +73,7 @@ const update = () => {
         } if (!rageQuantidade.test(quantidade)) {
             showError('não temos tantos livros assim pae')
             return
-        } if(!rageLetras.test(quantidade)) {
+        } if (!rageLetras.test(quantidade)) {
             showError('insira uma quantidade valida')
             return
         } if (!rageLetras.test(data)) {
@@ -85,11 +83,11 @@ const update = () => {
             showError('Descrição muito longa')
             return
         }
-        console.log(imagem)
-        console.log(descricao)
+        console.log()
         updateLivros(id, nome, genero, data, editora, quantidade, autorId, imagem, descricao).then(data => {
+            console.log(data)
             voltar()
-        }).catch(err => console.error(err))
+        }).catch(err => console.error(err, ))
 
     }
 
@@ -103,76 +101,83 @@ const update = () => {
     }
     let cpf = localStorage.getItem('cpf')
 
-    function verificar123 () {
+    function verificar123() {
         if (cpf == null || cpf == undefined) {
-          window.location.href = '/login'
+            window.location.href = '/login'
         }
         getUsersByCpf(cpf).then(data => {
-          if (data.papel == 'user'){
-            window.location.href = "/Usuarios/LivrosUsers"
-            return;
-          } if (data.papel == 'adm') {
-            return
-          }
+            if (data.papel == 'user') {
+                window.location.href = "/Usuarios/LivrosUsers"
+                return;
+            } if (data.papel == 'adm') {
+                return
+            }
         })
-      }
+    }
 
     function sair() {
         localStorage.clear();
         window.location.href = "/Login"
     }
 
-  return (
-    <>
-        <div className="header">
-            <Sidebar/>
-            <div className="text">
-                ATUALIZAR LIVROS
+    return (
+        <>
+            <div className="header">
+                <Sidebar />
+                <div className="text">
+                    ATUALIZAR LIVROS
+                </div>
+                <button className='button1 delete' onClick={sair} >sair</button>
             </div>
-            <button className='button1 delete' onClick={sair} >sair</button>
-        </div>
 
-        <div className="alinhar">
-                <div className="row">
-                    <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
-                </div>
 
-                <div className="row">
-                    <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' className='textInput' />
-                    <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInput' />
+            <div className="containerUpdateLivros">
+                 <div className="row">
+                    <img src={imagem} alt="capa do livro" />
                 </div>
+                {/*<div className="alinhar">
+                    <div className="row">
+                        <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
+                    </div>
 
-                <div className="row">
-                    <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
-                    <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
-                </div>
+                    <div className="row">
+                        <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' className='textInput' />
+                        <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInput' />
+                    </div>
 
-                <div className="row">
-                    <input type="text" value={imagem} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
-                    <input type="Number" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInput' />
-                </div>
-                <div className="row">
-                    <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
-                        <option value="">Selecione o autor</option>
-                        {autores.map((autor) => (
-                            <option value={autor.id_autor}>{autor.autor} </option>
-                        ))
+                    <div className="row">
+                        <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
+                        <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                    </div>
 
-                        }
-                    </select>
-                </div>
-                <div className="row">
-                    <span className='span aviso' id='span'></span>
-                </div>
-                <div className="row">
-                <Button variant="contained" startIcon={<SendIcon />} onClick={update} className='button'>Enviar</Button>
-                <div className="margin">
-                <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
-                </div>
-                </div>
-            </div>
-    </>
-  )
+                    <div className="row">
+                        <input type="text" value={imagem} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
+                        <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInput' />
+                    </div>
+                    <div className="row">
+                        <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
+                            <option value="">Selecione o autor</option>
+                            {autores.map((autor) => (
+                                <option value={autor.id_autor}>{autor.autor} </option>
+                            ))
+
+                            }
+                        </select>
+
+                    </div>
+                    <div className="row">
+                        <span className='span aviso' id='span'></span>
+                    </div>
+                    <div className="row">
+                        <Button variant="contained" startIcon={<SendIcon />} onClick={update} className='button'>Enviar</Button>
+                        <div className="margin">
+                            <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
+                        </div>
+                    </div>
+                </div>*/}
+            </div> 
+        </>
+    )
 }
 
 export default update

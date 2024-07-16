@@ -79,7 +79,7 @@ export async function deleteLivros(id) {
     return;
 }
 
-export async function updateLivros(nome, genero, data_criacao, editora, qtd_disponivel, id_autor, imagem, descricao) {
+export async function updateLivros(id, nome, genero, data_criacao, editora, qtd_disponivel, id_autor, imagem, descricao) {
     await http.put(`/livros/${id}`, { nome: nome, genero: genero, data_criacao: data_criacao, editora: editora, qtd_disponivel: qtd_disponivel, id_autor: id_autor, imagem: imagem, descricao: descricao  })
     return
 }
