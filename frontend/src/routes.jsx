@@ -18,7 +18,7 @@ import EmprestimosLivros from "./pages/adm/livros_emprestados/emprestimos_livros
 import Create from "./pages/users/create/create"
 import Login from "./pages/users/login/login"
 import LivrosUsers from "./pages/users/livros/livros"
-import LivrosView from "./pages/users/livros/livros"
+import LivrosView from "./pages/users/livros_view/livros"
 import Profile from "./pages/users/profile/profile"
 import ReclamacoesUsers from "./pages/users/reclamacoes/reclamacoes"
 import CreateReclamacoes from "./pages/users/create_reclamacoes/create"
