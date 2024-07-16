@@ -4,6 +4,7 @@ import { Button } from '@mui/material'
 import { useState, useEffect } from 'react'
 import './reclamacoes.css'
 import { getAllReclamacoes, deleteReclamacao } from '../../../services/APIservice'
+import { getUsersByCpf } from '../../../services/APIservice'
 
 const reclamacoes = () => {
 

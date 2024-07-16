@@ -7,6 +7,7 @@ import { createLivros, getAutores } from '../../../services/APIservice';
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';
 import './create.css'
+import { getUsersByCpf } from '../../../services/APIservice'
 
 // nome, genero, data_criacao, editora, qtd_disponivel, id_autor
 

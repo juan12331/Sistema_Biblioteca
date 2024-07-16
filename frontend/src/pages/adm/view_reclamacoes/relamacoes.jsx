@@ -10,6 +10,7 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 
+
 const relamacoes = () => {
     let cpf = localStorage.getItem('cpf')
 

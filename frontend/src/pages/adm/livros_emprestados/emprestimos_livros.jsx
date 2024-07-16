@@ -2,6 +2,7 @@ import React from 'react'
 import Button from '@mui/material/Button';
 import Sidebar from '../../../components/Drawer'
 import { useEffect } from 'react';
+import { getUsersByCpf } from '../../../services/APIservice'
 
 
 const emprestimos_livros = () => {

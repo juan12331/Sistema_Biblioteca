@@ -2,7 +2,7 @@ import React from 'react'
 import Sidebar from '../../../components/Drawer';
 import { useEffect, useState } from 'react'
 import Button from '@mui/material/Button';
-
+import { getUsersByCpf } from '../../../services/APIservice'
 
 import { getAutores, deleteAutores } from '../../../services/APIservice';
 

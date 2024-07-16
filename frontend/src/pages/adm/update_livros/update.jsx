@@ -8,6 +8,7 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import Button from '@mui/material/Button';
 import './update.css'
+import { getUsersByCpf } from '../../../services/APIservice'
 
 import CancelIcon from '@mui/icons-material/Cancel';
 import SendIcon from '@mui/icons-material/Send';

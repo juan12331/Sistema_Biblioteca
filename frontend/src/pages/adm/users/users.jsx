@@ -5,7 +5,7 @@ import Button from '@mui/material/Button';
 import { getUsers, deleteUser } from '../../../services/APIservice'
 import { useEffect, useState } from 'react'
 import React from 'react'
-
+import { getUsersByCpf } from '../../../services/APIservice'
 const users = () => {
 
   let cpf = localStorage.getItem('cpf')
