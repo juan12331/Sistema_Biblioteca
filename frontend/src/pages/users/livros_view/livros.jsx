@@ -15,6 +15,7 @@ const livros = () => {
   const [genero, setGenero] = useState('')
   const [descricao, setDesc] = useState('')
   const [quantidade, setQuantidade] = useState('')
+  const [autor, setAutor] = useState('')
 
 
   const { id } = useParams()
@@ -29,7 +30,7 @@ const livros = () => {
       setDesc(data.descricao)
       setQuantidade(data.qtd_disponivel)
       getAutoresById(data.id_autor).then(data => {
-
+        setAutor(data.autor)
       })
 
     }).catch(error => console.error(error))
@@ -61,6 +62,7 @@ const livros = () => {
 
         <div className="text">
           <div className="titulo"> {nome} </div>
+          <div className="autor"> {autor} </div>
           <span className='quantidade'> {quantidade} remanescentes </span>
           <div className="editora"> editora: {editora} </div>
           <div className="genero"> {genero} </div>

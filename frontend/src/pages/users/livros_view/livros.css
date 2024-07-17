@@ -1,5 +1,10 @@
 .conectar{
     display: flex;
+    margin: 0;
+}
+
+.autor{
+    font-weight: 100;
 }
 
 .imagem{
@@ -20,6 +25,7 @@
 
 .titulo{
     font-size: 3rem;
+    margin-bottom: 0;
 }
 
 .quantidade{
