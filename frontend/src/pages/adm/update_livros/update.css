@@ -1,4 +1,25 @@
-body{
-    background-color: #b6ad90;
-    
-  }
+.containerUpdateLivros{
+  display: flex;
+}
+
+.alinhar{
+  display: flex;
+  width: 20rem;
+  margin-top: 2rem;
+}
+
+.textInputDireita{
+  margin-left: 5%;
+}
+
+.IMAGE{
+  margin-top: 5rem;
+  margin-right: 10rem;
+  margin-left:1rem ;
+}
+
+.row{
+  display: flex;
+}
+ 
+/* FIX: ESSE CSS FEIO */

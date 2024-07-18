@@ -10,7 +10,6 @@ body{
 
 .InputText {
 align-items: center;
-appearance: none;
 background-color: #FCFCFD;
 border-radius: 4px;
 border: none;
@@ -18,16 +17,11 @@ box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,rgba(45, 35, 66, 0.3) 0 7px 13px -3p
 box-sizing: border-box;
 color: #36395A;
 cursor: pointer;
-display: inline-flex;
-font-family: "JetBrains Mono",monospace;
-padding-left: 16px;
-text-align: left;
 text-decoration: none;
 transition: box-shadow .15s,transform .15s;
 user-select: none;
 -webkit-user-select: none;
 white-space: nowrap;
-will-change: box-shadow,transform;
 font-size: 18px;
 height: 36px;
   

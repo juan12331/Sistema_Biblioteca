@@ -51,6 +51,7 @@ function MainRoutes() {
       <Route path="/Usuarios/Profile/:cpf" element={<Profile />} />
       <Route path="/Usuarios/ReclamacoesUsers" element={<ReclamacoesUsers />} />
       <Route path="/Usuarios/CreateReclamacoes/:id" element={<CreateReclamacoes />} />
+      <Route path="/" element={<Login />} />
     </Routes>
   );
 }

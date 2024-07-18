@@ -133,27 +133,30 @@ const update = () => {
 
 
             <div className="containerUpdateLivros">
-                 <div className="row">
+                 <div className="row IMAGE">
                     <img src={imagem} alt="capa do livro" />
                 </div>
-                {/*<div className="alinhar">
+
+
+                
+             <div className="alinhar">
                     <div className="row">
                         <input type="text" value={nome} onChange={(e) => setName(e.target.value)} placeholder='nome' className='textInputSozin' />
                     </div>
 
                     <div className="row">
                         <input type="text" value={genero} onChange={(e) => setGenero(e.target.value)} placeholder='genero' className='textInput' />
-                        <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInput' />
+                        <input type="text" value={data} onChange={(e) => setDate(e.target.value)} placeholder='Ano' className='textInputDireita textInput' />
                     </div>
 
                     <div className="row">
                         <input type="text" value={editora} onChange={(e) => setEditora(e.target.value)} placeholder='editora' className='textInput' />
-                        <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInput' />
+                        <input type="Number" value={quantidade} onChange={(e) => setQuantia(e.target.value)} placeholder='quantidade' className='textInputDireita textInput' />
                     </div>
 
                     <div className="row">
                         <input type="text" value={imagem} onChange={(e) => setImage(e.target.value)} placeholder='Image' className='textInput' />
-                        <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInput' />
+                        <input type="text" value={descricao} onChange={(e) => setDescricao(e.target.value)} placeholder='Descrição' className='textInputDireita textInput' />
                     </div>
                     <div className="row">
                         <select value={autorId} onChange={(e) => setId(e.target.value)} className='textInputSozin'>
@@ -166,16 +169,16 @@ const update = () => {
                         </select>
 
                     </div>
-                    <div className="row">
+                   
                         <span className='span aviso' id='span'></span>
-                    </div>
+                    
                     <div className="row">
                         <Button variant="contained" startIcon={<SendIcon />} onClick={update} className='button'>Enviar</Button>
-                        <div className="margin">
-                            <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button'>Cancelar</Button>
-                        </div>
+                        
+                            <Button variant="contained" color="error" startIcon={<CancelIcon />} onClick={voltar} className='button buttonEnviar'>Cancelar</Button>
+                        
                     </div>
-                </div>*/}
+                </div>
             </div> 
         </>
     )

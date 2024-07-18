@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import './livros.css'
 import { getLivrosById, getAutoresById } from '../../../services/APIservice'
 import { useParams } from 'react-router-dom'
+import AddIcon from '@mui/icons-material/Add';
+import { Button } from '@mui/material'
 
 
 
@@ -60,14 +62,16 @@ const livros = () => {
           <img src={image} alt="" />
         </div>
 
-        <div className="text">
+        <div className="textLivrosEmprestados">
           <div className="titulo"> {nome} </div>
           <div className="autor"> {autor} </div>
           <span className='quantidade'> {quantidade} remanescentes </span>
           <div className="editora"> editora: {editora} </div>
           <div className="genero"> {genero} </div>
           <div className="descricao"> Descrição: <br /> {descricao} </div>
-          
+          <Button variant="contained" className='buttonEmprestimo' startIcon={<AddIcon />}>
+          Emprestar
+          </Button>
         </div>
       </div>
     </div>
