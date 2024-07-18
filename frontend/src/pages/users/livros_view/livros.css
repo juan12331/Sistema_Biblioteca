@@ -42,3 +42,8 @@
     /* margin-top: 1rem; */
     font-size: medium;
 }
+
+.textLivrosEmprestados button {
+    width: 10rem;
+    margin-top: 1rem;
+}

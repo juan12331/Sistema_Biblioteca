@@ -73,7 +73,9 @@ const livros = () => {
           Emprestar
           </Button>
         </div>
+        
       </div>
+      
     </div>
   )
 }
