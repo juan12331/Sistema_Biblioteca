@@ -1,9 +1,9 @@
 .sidebarra{
     background-color: #202124;
     width: 20rem;
-    height: 30rem;
+    height: 25rem;
     margin: 1.5rem;
-    margin-bottom: 3rem;
+    margin-bottom: 7.15rem;
     border-radius: 3rem;
     display: flex;
     flex-direction: column;
@@ -13,6 +13,10 @@
 }
 .boddie{
     display: flex;
+}
+
+.nomeText{
+    color: white;
 }
 
 .AvatarProfile{
@@ -44,10 +48,9 @@
     width: 90%;
     text-align: center;
     color: white;
-    background-color: #0F171F;
     cursor: pointer;
     transition: 0.3s ease;
-    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    border: 1px solid black
 }
 
 .Lista:hover{

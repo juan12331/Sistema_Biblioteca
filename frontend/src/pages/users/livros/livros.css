@@ -41,13 +41,13 @@
     }
 
     & .dimmed {
-        opacity: 0.75;
+        opacity: 0.5;
     }
 }
 
 .bod {
     background-color: #202124;
-    min-height: max-content;
+    min-height: 100vh;
 }
 
 html {

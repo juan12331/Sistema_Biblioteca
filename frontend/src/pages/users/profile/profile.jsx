@@ -19,6 +19,11 @@ const profile = () => {
     }
   }
 
+  function sair() {
+    localStorage.clear()
+    window.location.href = '/login'
+  }
+
   useEffect(() => {
     verificar()
   }, [])
@@ -54,7 +59,7 @@ const profile = () => {
         Reclamações
       </span>
 
-      <span className="Lista Sair">
+      <span className="Lista Sair" onClick={sair}>
         Sair
       </span>
 
@@ -64,7 +69,7 @@ const profile = () => {
         books
       </div>
 
-      
+
       </div>
       </div>
     </>
