@@ -1,9 +1,12 @@
 const { Op } = require('sequelize');
 const Reclamacoes = require('../models/reclamacoes');
+const usuarios = require('../models/usuarios');
 
 exports.createReclamacoes = async (req, res) => {
     try {
+        console.log('asdasdasdasa')
         await Reclamacoes.create(req.body)
+        console.log('asdasdasdasa')
         return res.status(201).send('Reclamação criada com sucesso')
     } catch (err) {
         return res.status(500).send(err)
@@ -55,7 +58,9 @@ exports.getAllReclamacoes = async (req, res) => {
 
 exports.getReclamacoesById = async (req, res) => {
     try{
-        const encontaReclamacao = await Reclamacoes.findByPk(req.params.id)
+        const encontaReclamacao = await Reclamacoes.findByPk(req.params.id, {include: [{
+            model: usuarios
+        }]})
         if ( !encontaReclamacao ) {
             return res.satus(404).send("reclamacao not found")
         }   
@@ -64,8 +69,4 @@ exports.getReclamacoesById = async (req, res) => {
     } catch (error) {
         return res.status(500).send(error)
     }
-}
-
-exports.AumentarClassificacao = async (req, res) => {
-    //TODO: aumentar a classificacao da reclamacao
 }

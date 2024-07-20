@@ -25,7 +25,7 @@ const relamacoes = () => {
         getReclamacoesById(id).then(data => {
             setAssunto(data.assunto)
             setReclamacao(data.reclamacao)
-            getUsersByCpf(data.cpf_usuario).then(data => {
+            getUsersByCpf(data.cpf).then(data => {
                 setNome(data.nome)
             })
         })
@@ -76,7 +76,7 @@ const relamacoes = () => {
             </div>
             <div className="reclamacoesContainer">
                 <div className="cpf_usuario">
-                    {<AccountCircleIcon />} {nome}
+                    {<AccountCircleIcon />} <span> {nome} </span>
                 </div>
 
                 <div className="assunto">

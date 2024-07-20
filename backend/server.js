@@ -14,9 +14,7 @@ livros.sync();
 reclamacoes.sync();
 emprestimos.sync();
 
-usuarios.hasMany(reclamacoes, {
-    foreignKey: 'cpf_usuario'
-})
+
 
 
 const app = express();

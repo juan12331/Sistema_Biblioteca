@@ -16,7 +16,19 @@ const reclamacoes = database.define('reclamacoes', {
     reclamacao: {
         type: Sequelize.STRING(500),
     },
+    cpf: {
+        type: Sequelize.STRING,
+        AllowNUll: false,
+    }
 });
 
+
+usuarios.hasMany(reclamacoes, {
+    foreignKey: 'cpf'
+})
+
+reclamacoes.belongsTo(usuarios, {
+    foreignKey: 'cpf'
+})
 
 module.exports = reclamacoes
