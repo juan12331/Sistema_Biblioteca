@@ -4,6 +4,7 @@ const UsuariosControllers = require('../controllers/usuarios')
 const AutoresControllers = require('../controllers/autores')
 const LivrosControllers = require('../controllers/livros')
 const ReclamacoesControllers = require('../controllers/reclamacoes')
+const EmprestimosControllers = require('../controllers/emprestimos')
 // FIX: adicionar obrigatoriadoredade de token nas rotas
 
 

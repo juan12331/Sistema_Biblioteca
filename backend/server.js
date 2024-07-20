@@ -5,14 +5,14 @@ const usuarios = require('./models/usuarios');
 const livros = require('./models/livros');
 const autores = require('./models/autores');
 const reclamacoes = require('./models/reclamacoes')
-const avaliacao = require('./models/avaliacao')
+const emprestimos = require('./models/emprestimos')
 const cookieParser = require('cookie-parser')
 
 usuarios.sync();
 autores.sync();
 livros.sync();
 reclamacoes.sync();
-avaliacao.sync();
+emprestimos.sync();
 
 usuarios.hasMany(reclamacoes, {
     foreignKey: 'cpf_usuario'

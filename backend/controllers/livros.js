@@ -1,6 +1,5 @@
 const { Op } = require('sequelize');
 const Livros = require('../models/livros');
-const autores = require('../models/autores');
 
 
 exports.createLivros = async (req, res) => {
