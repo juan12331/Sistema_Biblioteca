@@ -50,7 +50,7 @@ function MainRoutes() {
       <Route path="/Usuarios/LivrosView/:id" element={<LivrosView />} />
       <Route path="/Usuarios/Profile/:cpf" element={<Profile />} />
       <Route path="/Usuarios/ReclamacoesUsers" element={<ReclamacoesUsers />} />
-      <Route path="/Usuarios/CreateReclamacoes/:id" element={<CreateReclamacoes />} />
+      <Route path="/Usuarios/CreateReclamacoes" element={<CreateReclamacoes />} />
       <Route path="/" element={<Login />} />
     </Routes>
   );
