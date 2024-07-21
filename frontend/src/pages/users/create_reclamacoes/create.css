@@ -1,4 +1,4 @@
-.emailArea{
+.emailArea {
     width: 50vw;
     height: 70vh;
     color: aliceblue;
@@ -6,7 +6,7 @@
     flex-direction: column;
 }
 
-.titulo{
+.titulo {
     text-align: center;
     font-size: 35px;
     margin-bottom: 0;
@@ -16,10 +16,11 @@
     margin-top: 1.5rem;
 }
 
-.assunto{
+.assunto {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     & input {
         width: 42.5rem;
         border-radius: 1rem;
@@ -30,14 +31,15 @@
         transition: 0.3s ease;
     }
 
-    & input:active{
+    & input:active {
         transform: translate(0, 2px);
     }
 }
 
-.mensagem{
+.mensagem {
     margin-top: 1rem;
-    & textarea{
+
+    & textarea {
         border-radius: 1rem 1rem 0 1rem;
         border: none;
         display: flex;
@@ -52,29 +54,30 @@
         transition: 0.3s ease;
     }
 
-    & textarea:active{
+    & textarea:active {
         transform: translate(0, 2px);
     }
 }
 
-.botao{
+.botao {
     display: flex;
     justify-content: flex-end;
     transition-duration: 0.3s;
 }
 
 
-.botao:hover{
+.botao:hover {
     transform: translate(0, -2.5px);
-    & button{
+
+    & button {
         box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
-        color: aliceblue;        
+        color: aliceblue;
     }
 }
 
-.corPo{
+.corPo {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }

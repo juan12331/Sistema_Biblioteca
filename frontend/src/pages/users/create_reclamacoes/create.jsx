@@ -24,33 +24,33 @@ const create = () => {
 
   return (
     <div className="bod">
-      <Navbar/>
+      <Navbar />
 
 
-<div className="corPo">
-      <div className="emailArea">
-        <div className="titulo">Fale conosco <br />
-        </div>
-      <div className="assunto">
-        <div className="assuntoText">
-          Assunto:
-        </div>
-        <input type="text" />
-      </div>
-      <div className="mensagem">
-        <div className="textareaMensagem">
-          Mensagem:
-        </div>
-        <textarea name="" id=""></textarea>
-      </div>
+      <div className="corPo">
+        <div className="emailArea">
+          <div className="titulo">Fale conosco <br />
+          </div>
+          <div className="assunto">
+            <div className="assuntoText">
+              Assunto:
+            </div>
+            <input type="text" />
+          </div>
+          <div className="mensagem">
+            <div className="textareaMensagem">
+              Mensagem:
+            </div>
+            <textarea name="" id=""></textarea>
+          </div>
 
-      <div className="botao">
-      <Button variant="contained" onClick={redirecionar} > <AddIcon/> Criar</Button>
+          <div className="botao">
+            <Button variant="contained" onClick={redirecionar} > <AddIcon /> Criar</Button>
+          </div>
+
+        </div>
       </div>
-      
-      </div>
-      </div>
-      </div>
+    </div>
   )
 }
 
