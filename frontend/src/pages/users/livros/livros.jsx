@@ -24,7 +24,9 @@ const livros = () => {
   const [hoveredIndex, setHoveredIndex] = useState(null);
 
   function setLivros(params) {
+
     getLivros(params).then(data => {
+      console.log(data)
       setBooks(data)
     }).catch(err => console.log("deu erro :(", err))
   }
