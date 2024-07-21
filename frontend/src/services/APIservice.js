@@ -96,8 +96,8 @@ export async function getAllReclamacoes ( params ) {
     return response.data;
 }
 
-export async function createReclamacoes ( assunto, reclamacao, usuarioCpf ) {
-    const response = await http.post('/reclamacoes', { assunto: assunto, reclamacao: reclamacao, usuarioCpf: usuarioCpf })
+export async function createReclamacoes ( assunto, reclamacao, cpf ) {
+    const response = await http.post('/reclamacoes', { assunto: assunto, reclamacao: reclamacao, cpf: cpf })
     return response.data;
 }
 
