@@ -1,8 +1,7 @@
 const { Op, where, Model } = require('sequelize');
 const Emprestimos = require('../models/emprestimos');
-const Usuarios = require('../models/emprestimos') 
 const Livros = require('../models/livros');
-const usuarios = require('../models/usuarios');
+const Usuarios = require('../models/usuarios');
 
 exports.createEmprestimos = async (req, res) => {
     try {
@@ -17,8 +16,8 @@ exports.createEmprestimos = async (req, res) => {
 exports.getAllEmprestimos = async (req, res) => {
     try {
 
-        const EmprestimosInformacoes = await Livros.findAll({ include: [{
-            model: usuarios, right: true
+        const EmprestimosInformacoes = await Usuarios.findAll({ include: [{
+            model: Livros, right: true
     }] })
    
     return res.send(EmprestimosInformacoes)
@@ -29,7 +28,15 @@ exports.getAllEmprestimos = async (req, res) => {
 
 
 exports.getEmprestimosByCpf = async (req, res) => {
+    try {
+        const EmprestimosInformacoes = await Livros.findAll({ include: [{
+            model: usuarios, right: true
+    }] 
 
+})
+    } catch (error) {
+        return  res.status(500).send(error)
+    }
 }
 
 exports.getEmprestimosById = async (req, res) => {

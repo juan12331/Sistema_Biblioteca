@@ -54,6 +54,7 @@ routes.get('/reclamacoes/:id', ReclamacoesControllers.getReclamacoesById)
 
 routes.get('/emprestimos', EmprestimosControllers.getAllEmprestimos)
 routes.get('/emprestimos/:cpf', EmprestimosControllers.getEmprestimosByCpf)
+routes.get('/emprestimos/:id', EmprestimosControllers.getEmprestimosById)
 
 routes.post('/emprestimos', EmprestimosControllers.createEmprestimos)
 
