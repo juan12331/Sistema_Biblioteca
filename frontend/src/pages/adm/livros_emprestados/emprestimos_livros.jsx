@@ -41,6 +41,10 @@ const emprestimos_livros = () => {
     })
   }
 
+  function redirecionar (cpf) {
+    window.location.href = `/Adm/EmprestimoUdpdate/${cpf}`
+  }
+
   useEffect(() => {
     verificar123()
     getEmprestimos()
@@ -84,7 +88,7 @@ const emprestimos_livros = () => {
             
 
             <button value={emprestimo.id} id='delete' className='button1 delete' > Devolver </button>
-            <button value={emprestimo.id} id='edit' className='button1 edit' > Editar </button>
+            <button value={emprestimo.id} id='edit' className='button1 edit' onClick={() => redirecionar(emprestimo.cpf)} > Editar </button>
           </div>
         ))}
       </div>

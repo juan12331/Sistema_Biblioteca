@@ -43,7 +43,7 @@ function MainRoutes() {
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores />} />
       <Route path="/Adm/ViewReclamacoes/:id" element={<ViewReclamacoes />} />
       <Route path="/Adm/EmprestimosLivros" element={<EmprestimosLivros />} />
-      <Route path="/Adm/EmprestimoUdpdate" element={<EmprestimoUpdate />} />
+      <Route path="/Adm/EmprestimoUdpdate/:cpf" element={<EmprestimoUpdate />} />
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
