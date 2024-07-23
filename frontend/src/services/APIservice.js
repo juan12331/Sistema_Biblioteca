@@ -110,3 +110,34 @@ export async function getReclamacoesById (id_reclamacao) {
     const response = await http.get(`/reclamacoes/${id_reclamacao}`)
     return response.data;
 }
+
+//funções dos emprestimos
+
+export async function getAllEmprestimos ( params ) {
+    const response = await http.get('/emprestimos', { params })
+    return response.data
+}
+
+export async function getEmprestimosByCpf ( cpf ) {
+    const response = await http.get(`/emprestimos/${cpf}`)
+    return response.data
+}
+
+export async function getReclamacoesById (id) {
+    const response = await http.get(`/emprestimos/${id}`)
+    return response.data
+}
+
+export async function createEmprestimos (cpf, id_livro) {
+    const response = await http.post(`/emprestimos`, {cpf: cpf, id_livro: id_livro})
+    return response.data
+}
+
+export async function deleteEmprestimos (id) {
+    const response = await http.delete(`/emprestimos/${id}`)
+    return;
+}
+
+export async function updateEmprestimos (id, status) {
+    const response = await http.put(`/emprestimos/${id}`, {status: status})
+}
