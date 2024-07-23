@@ -43,9 +43,15 @@ const profile = () => {
     window.location.href = "/Usuarios/LivrosUsers"
   }
 
+  function pegarUsuario() {
+    getUsersByCpf(cpf).then(data => {
+      setNome(data.nome)
+    })
+  }
 
 
   useEffect(() => {
+    pegarUsuario()
     verificar()
   }, [])
 
@@ -69,7 +75,7 @@ const profile = () => {
             />
 
             <span className="nomeText">
-              Olá {nome}
+              Olá, {nome}
             </span>
 
             <span className="Lista1 Lista" onClick={LivrosRedirect}>
@@ -94,7 +100,7 @@ const profile = () => {
                 onClick={() => redirect(book.id_livro)}
               >
                 <div className='bookCover'>
-                  <img src={book.imagem} alt={book.nome} />
+                  <img src={book.imagem} alt={book.nome} className='ImagemBook' />
                 </div>
                 <div className='bookInfo'>
 

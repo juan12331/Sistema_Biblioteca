@@ -74,7 +74,7 @@ const livros = () => {
             onClick={() => redirect(book.id_livro)}
           >
             <div className='bookCover'>
-              <img src={book.imagem} alt={book.nome} />
+              <img src={book.imagem} alt={book.nome} className='ImagemBook' />
             </div>
             <div className='bookInfo'>
               <div className="rating">

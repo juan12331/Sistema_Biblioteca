@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import Button from '@mui/material/Button';
 import Sidebar from '../../../components/Drawer'
 import { useEffect } from 'react';
-import { getUsersByCpf, getAllEmprestimos } from '../../../services/APIservice'
+import { getUsersByCpf, getAllEmprestimos, deleteEmprestimos, getLivrosById, updateLivros } from '../../../services/APIservice'
 import './emprestimos_livros.css'
 
 
@@ -43,6 +43,17 @@ const emprestimos_livros = () => {
 
   function redirecionar (cpf) {
     window.location.href = `/Adm/EmprestimoUdpdate/${cpf}`
+  }
+
+  async function deleteLivros(emprestimo) {
+    getLivrosById(emprestimo.livros[0].id_livro).then(data => {
+      console.log(data)
+      updateLivros( data.id_livro, data.nome, data.genero, data.data_criacao, data.editora, data.qtd_disponivel + 1 )
+    })
+    await deleteEmprestimos(emprestimo.livros[0].emprestimos.id)
+    
+    getEmprestimos()
+    
   }
 
   useEffect(() => {
@@ -87,8 +98,8 @@ const emprestimos_livros = () => {
 
             
 
-            <button value={emprestimo.id} id='delete' className='button1 delete' > Devolver </button>
-            <button value={emprestimo.id} id='edit' className='button1 edit' onClick={() => redirecionar(emprestimo.cpf)} > Editar </button>
+            <button value={emprestimo.id} id='delete' className='button1 delete' onClick={() => deleteLivros(emprestimo)}> Devolver </button>
+            {/* <button value={emprestimo.id} id='edit' className='button1 edit' onClick={() => redirecionar(emprestimo.cpf)} > Editar </button> */}
           </div>
         ))}
       </div>
