@@ -39,7 +39,7 @@ const profile = () => {
     window.location.href = "/Usuarios/ReclamacoesUsers"
   }
 
-  function LivrosRedirect () {
+  function LivrosRedirect() {
     window.location.href = "/Usuarios/LivrosUsers"
   }
 
@@ -112,7 +112,7 @@ const profile = () => {
               </div>
             ))}
           </div>
-          
+
 
 
         </div>
