@@ -13,6 +13,7 @@ import UpdateAutor from "./pages/adm/update_autores/updateAutor"
 import CreateAutores from "./pages/adm/create_autores/create"
 import ViewReclamacoes from "./pages/adm/view_reclamacoes/relamacoes"
 import EmprestimosLivros from "./pages/adm/livros_emprestados/emprestimos_livros"
+import EmprestimoUpdate from "./pages/adm/emprestimoUpdate/emprestimoUpdate";
 
 //Rotas dos usuarios
 import Create from "./pages/users/create/create"
@@ -42,6 +43,7 @@ function MainRoutes() {
       <Route path="/Adm/Cadastrar_autor" element={<CreateAutores />} />
       <Route path="/Adm/ViewReclamacoes/:id" element={<ViewReclamacoes />} />
       <Route path="/Adm/EmprestimosLivros" element={<EmprestimosLivros />} />
+      <Route path="/Adm/EmprestimoUdpdate" element={<EmprestimoUpdate />} />
 
       {/* User Routes */}
       <Route path="/Cadastro" element={<Create />} />
