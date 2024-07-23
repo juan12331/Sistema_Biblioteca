@@ -60,4 +60,6 @@ routes.post('/emprestimos', EmprestimosControllers.createEmprestimos)
 
 routes.delete('/emprestimos/:id', EmprestimosControllers.deleteEmprestimos)
 
+routes.put('/emprestimos/:id', EmprestimosControllers.updateEmprestimos)
+
 module.exports = routes

@@ -8,7 +8,7 @@ exports.createEmprestimos = async (req, res) => {
         const Emprestimo = await Emprestimos.create(req.body)
         console.log(Emprestimo)
         return res.status(201).send(Emprestimo)
-    } catch(error) {
+    } catch (error) {
         return res.status(500).send(error)
     }
 }
@@ -16,26 +16,50 @@ exports.createEmprestimos = async (req, res) => {
 exports.getAllEmprestimos = async (req, res) => {
     try {
 
-        const EmprestimosInformacoes = await Usuarios.findAll({ include: [{
-            model: Livros, right: true
-    }] })
-   
-    return res.send(EmprestimosInformacoes)
-} catch (error) {
-    return res.status(500).send(error)
-}
+        const { nome, cpf } = req.query || {};
+
+        if (!nome && !cpf) {
+            const EmprestimosInformacoes = await Usuarios.findAll({
+                include: [{
+                    model: Livros, right: true
+                }]
+            })
+            return res.send(EmprestimosInformacoes)
+        }
+
+        const pesquisa = {
+            [Op.or]: [
+                nome ? { nome: { [Op.like]: `%${nome}%` } } : undefined,
+                cpf ? { cpf: { [Op.like]: `%${cpf}%` } } : undefined,
+            ].filter(Boolean)
+        }
+
+        const EmprestimosInformacoes = await Usuarios.findAll({
+            where: pesquisa, include: [{
+                model: Livros, right: true
+            }]
+        })
+        return res.send(EmprestimosInformacoes)
+
+    } catch (error) {
+        return res.status(500).send(error)
+    }
 }
 
 
 exports.getEmprestimosByCpf = async (req, res) => {
     try {
-        const EmprestimosInformacoes = await Livros.findAll({ include: [{
-            model: usuarios, right: true
-    }] 
+        Cpf = req.params.cpf
+        const EmprestimosInformacoes = await Usuarios.findAll({
+            where: { cpf: Cpf }, include: [{
+                model: Livros, right: true
+            }]
+        })
 
-})
-    } catch (error) {
-        return  res.status(500).send(error)
+        return res.status(200).send(EmprestimosInformacoes)
+    }
+    catch (error) {
+        return res.status(500).send(error)
     }
 }
 
@@ -49,10 +73,10 @@ exports.getEmprestimosById = async (req, res) => {
 }
 
 exports.updateEmprestimos = async (req, res) => {
-    try{
+    try {
         const id = req.params.id
-        const idEmprestimo = await Emprestimos.findOne({ where: { id : id } })
-        if(idEmprestimo) {
+        const idEmprestimo = await Emprestimos.findOne({ where: { id: id } })
+        if (idEmprestimo) {
             const [Updates] = await Emprestimos.update(req.body, { where: { id: id } }) // verifica se tem alguma alteração
             return res.send({ message: 'Status atualizado', })
         }
