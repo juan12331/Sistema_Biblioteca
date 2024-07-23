@@ -83,7 +83,7 @@ const emprestimos_livros = () => {
 
             
 
-            <button value={emprestimo.id} id='delete' className='button1 delete' > Cancelar/Devolver </button>
+            <button value={emprestimo.id} id='delete' className='button1 delete' > Devolver </button>
             <button value={emprestimo.id} id='edit' className='button1 edit' > Editar </button>
           </div>
         ))}
