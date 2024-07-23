@@ -1,24 +1,30 @@
 import React from 'react'
 import Sidebar from '../../../components/Drawer'
-import Button from '@mui/material/Button';
+
 
 import { useEffect, useState } from 'react'
-import { getUsersByCpf } from '../../../services/APIservice'
+import { getEmprestimosByCpf, getUsersByCpf } from '../../../services/APIservice'
+import { useParams } from 'react-router-dom'
+
 
 const emprestimoUpdate = () => {
+
+  const { cpf } = useParams()
+
+  const [emprestimoss, setEmprestimoss] = useState([])
 
   function sair() {
     localStorage.clear();
     window.location.href = "/Login"
   }
 
-  let cpf = localStorage.getItem('cpf')
+  let Cpf = localStorage.getItem('cpf')
 
     function verificar123 () {
-      if (cpf == null || cpf == undefined) {
+      if (Cpf == null || Cpf == undefined) {
         window.location.href = '/login'
       }
-      getUsersByCpf(cpf).then(data => {
+      getUsersByCpf(Cpf).then(data => {
         if (data.papel == 'user'){
           window.location.href = "/Usuarios/LivrosUsers"
           return;
@@ -29,8 +35,15 @@ const emprestimoUpdate = () => {
     }
 
 
+    function emprestimos() {
+      getEmprestimosByCpf(cpf).then(data => {
+        console.log(data[0].livros)
+        setEmprestimoss(data[0].livros)
+      })
+    }
     useEffect(() => {
       verificar123()
+      emprestimos()
     }, [])
 
   return (
@@ -42,7 +55,13 @@ const emprestimoUpdate = () => {
     </div>
     <button className='button1 delete' onClick={sair} >sair</button>
   </div>
+    {emprestimoss.map(emprestimos => (
+      <div className="div">
+        {emprestimos.nome}
+      </div>
+    ))
 
+    }
   </>
   )
 }

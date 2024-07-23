@@ -6,7 +6,7 @@ import { getLivrosById, getAutoresById } from '../../../services/APIservice'
 import { useParams } from 'react-router-dom'
 import AddIcon from '@mui/icons-material/Add';
 import { Button } from '@mui/material'
-
+import { createEmprestimos, updateLivros } from '../../../services/APIservice'
 
 
 const livros = () => {
@@ -18,6 +18,7 @@ const livros = () => {
   const [descricao, setDesc] = useState('')
   const [quantidade, setQuantidade] = useState('')
   const [autor, setAutor] = useState('')
+  const [ano, setAno] = useState('')
 
 
   const { id } = useParams()
@@ -31,12 +32,15 @@ const livros = () => {
       setGenero(data.genero)
       setDesc(data.descricao)
       setQuantidade(data.qtd_disponivel)
+      setAno(data.ano)
       getAutoresById(data.id_autor).then(data => {
         setAutor(data.autor)
       })
 
     }).catch(error => console.error(error))
   }
+
+  
 
 
   let cpf = localStorage.getItem('cpf')
@@ -46,6 +50,20 @@ const livros = () => {
       window.location.href = '/login'
     }
   }
+
+
+  function Emprestar() {
+    if (quantidade <= 0) {
+      return
+    }
+    createEmprestimos(cpf, id).then(data => {
+      console.log(data)
+      updateLivros(id, nome, genero, ano, editora, quantidade - 1).then(data => {
+        window.location.href = "/Usuarios/LivrosUsers"
+      })
+  })
+  }
+
 
   useEffect(() => {
     verificar()
@@ -69,7 +87,7 @@ const livros = () => {
           <div className="editora"> editora: {editora} </div>
           <div className="genero"> {genero} </div>
           <div className="descricao"> Descrição: <br /> {descricao} </div>
-          <Button variant="contained" className='buttonEmprestimo' startIcon={<AddIcon />}>
+          <Button variant="contained" className='buttonEmprestimo' startIcon={<AddIcon />} onClick={Emprestar}>
           Emprestar
           </Button>
         </div>

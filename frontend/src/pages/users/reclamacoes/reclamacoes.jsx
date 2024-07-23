@@ -44,7 +44,6 @@ const reclamacoes = () => {
       <Navbar/>
       <div className="reclamacoes">
       <div className="searchbox">
-        <input type="text" placeholder="Pesquisar" onChange={searchReclamacoes} />
         <Button variant="contained" onClick={redirecionar} > <AddIcon/> Criar</Button>
 
       </div>
