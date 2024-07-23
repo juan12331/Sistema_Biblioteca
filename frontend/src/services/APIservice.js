@@ -123,7 +123,7 @@ export async function getEmprestimosByCpf ( cpf ) {
     return response.data
 }
 
-export async function getReclamacoesById (id) {
+export async function getEmprestimosById (id) {
     const response = await http.get(`/emprestimos/${id}`)
     return response.data
 }
