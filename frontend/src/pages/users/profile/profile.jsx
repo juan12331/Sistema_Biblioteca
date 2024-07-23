@@ -35,6 +35,14 @@ const profile = () => {
     return text;
   }
 
+  function RelamacoesRedirect() {
+    window.location.href = "/Usuarios/ReclamacoesUsers"
+  }
+
+  function LivrosRedirect () {
+    window.location.href = "/Usuarios/LivrosUsers"
+  }
+
 
 
   useEffect(() => {
@@ -64,11 +72,11 @@ const profile = () => {
               Olá {nome}
             </span>
 
-            <span className="Lista1 Lista">
+            <span className="Lista1 Lista" onClick={LivrosRedirect}>
               Livros
             </span>
 
-            <span className="Lista">
+            <span className="Lista" onClick={RelamacoesRedirect}>
               Reclamações
             </span>
 
