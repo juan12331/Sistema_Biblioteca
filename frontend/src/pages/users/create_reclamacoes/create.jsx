@@ -15,11 +15,21 @@ const create = () => {
   // assunto, reclamacao, usuarioCpf
 
   const criarReclamacao = () => {
-    console.log(cpf)
+
+    if(mensagem.length > 700) {
+      showError('Muitos caracteres na mensagem')
+      return;
+    }
      createReclamacoes(assunto, mensagem, cpf).then(data => {
         console.log(data)
-      })
+        window.location.href = "/Usuarios/ReclamacoesUsers"
+      }).catch(error => console.error(error))
   }
+
+  const showError = (message) => {
+    const span = document.getElementById('span');
+    span.textContent = message;
+}
 
 
   const verificar = () => {
@@ -56,6 +66,7 @@ const create = () => {
           </div>
 
           <div className="botao">
+          <span className='span aviso' id='span'></span>
             <Button variant="contained" onClick={criarReclamacao} > <AddIcon /> Criar</Button>
           </div>
 

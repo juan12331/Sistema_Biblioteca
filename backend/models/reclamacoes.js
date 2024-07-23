@@ -14,7 +14,7 @@ const reclamacoes = database.define('reclamacoes', {
         type: Sequelize.STRING,
     },
     reclamacao: {
-        type: Sequelize.STRING(500),
+        type: Sequelize.STRING(750),
     },
     cpf: {
         type: Sequelize.STRING,
