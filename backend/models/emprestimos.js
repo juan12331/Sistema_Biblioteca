@@ -5,22 +5,20 @@ const usuarios = require('./usuarios')
 const livros = require('./livros')
 
 const emprestimos = database.define('emprestimos', {
-    id_emprestimos: {
+    id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         AllowNUll: false,
         primaryKey: true,
         unique: true  
     },
+    cpf: {
+        type: Sequelize.STRING,
+        AllowNUll: false,
+    },
     id_livro: {
         type: Sequelize.INTEGER,
         allowNull: false,
-        unique: true
-    },
-    cpf_usuario: {
-        type: Sequelize.STRING,
-        AllowNUll: false,
-        unique: true
     },
     status: {
         type: Sequelize.ENUM('Entregue', 'Não entregue'),
@@ -29,19 +27,16 @@ const emprestimos = database.define('emprestimos', {
     }
 })
 
-usuarios.hasMany(emprestimos, {
-    foreignKey: 'cpf_usuario'
+
+
+usuarios.belongsToMany(livros, {
+    through: emprestimos,
+    foreignKey: 'cpf'
 })
 
-emprestimos.belongsTo(usuarios, {
-    foreignKey: 'cpf_usuario'
-})
 
-livros.hasMany(emprestimos, {
-    foreignKey: 'id_livro'
-})
-
-emprestimos.belongsTo(livros, {
+livros.belongsToMany(usuarios, {
+    through: emprestimos,
     foreignKey: 'id_livro'
 })
 

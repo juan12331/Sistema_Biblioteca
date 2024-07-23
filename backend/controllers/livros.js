@@ -17,7 +17,7 @@ exports.getLivros = async (req, res) => {
     const { nome, genero } = req.query || {};
 
     if (!nome && !genero) {
-        const livros = await Livros.findAll({ include: autores });
+        const livros = await Livros.findAll({  include: autores });
         return res.send(livros)
     }
 

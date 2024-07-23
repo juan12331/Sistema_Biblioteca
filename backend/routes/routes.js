@@ -50,6 +50,13 @@ routes.delete('/reclamacoes/:id', ReclamacoesControllers.deleteReclamacoes)
 routes.get('/reclamacoes', ReclamacoesControllers.getAllReclamacoes)
 routes.get('/reclamacoes/:id', ReclamacoesControllers.getReclamacoesById)
 
-//funções das avaliações
+//funções dos emprestimos
+
+routes.get('/emprestimos', EmprestimosControllers.getAllEmprestimos)
+routes.get('/emprestimos/:cpf', EmprestimosControllers.getEmprestimosByCpf)
+
+routes.post('/emprestimos', EmprestimosControllers.createEmprestimos)
+
+routes.delete('/emprestimos/:id', EmprestimosControllers.deleteEmprestimos)
 
 module.exports = routes
