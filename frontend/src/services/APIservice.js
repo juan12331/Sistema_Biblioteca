@@ -134,10 +134,11 @@ export async function createEmprestimos (cpf, id_livro) {
 }
 
 export async function deleteEmprestimos (id) {
-    const response = await http.delete(`/emprestimos/${id}`)
+    await http.delete(`/emprestimos/${id}`)
     return;
 }
 
 export async function updateEmprestimos (id, status) {
     const response = await http.put(`/emprestimos/${id}`, {status: status})
+    return response.data
 }
